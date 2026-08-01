@@ -31,7 +31,14 @@ export default function HowItWorksPage() {
   ];
 
   return (
-    <div className="bg-brand-bg">
+    <div 
+      className="relative min-h-screen bg-cover bg-center bg-fixed"
+      style={{ backgroundImage: 'url("/bg-how-it-works.jpg")' }}
+    >
+      {/* Background overlay so text remains legible */}
+      <div className="absolute inset-0 bg-[#FAF9F6]/90 backdrop-blur-[2px] z-0" />
+      
+      <div className="relative z-10">
       {/* 1. Page Header */}
       <section className="py-20 md:py-32 border-b border-brand-border overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
@@ -55,17 +62,17 @@ export default function HowItWorksPage() {
       </section>
 
       {/* 2. Timeline Grid */}
-      <section className="py-24 md:py-36 bg-brand-card border-b border-brand-border">
+      <section className="py-24 md:py-36 bg-brand-card/40 backdrop-blur-sm border-b border-brand-border">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
             {steps.map((step, idx) => (
               <div
                 key={idx}
-                className="relative p-8 bg-brand-bg border border-brand-border rounded-sm hover:border-brand-accent/30 transition-all duration-300 flex flex-col justify-between"
+                className="relative p-8 bg-brand-bg/80 backdrop-blur-md border border-brand-border rounded-sm hover:border-brand-accent/30 transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
                   <div className="flex justify-between items-center mb-8">
-                    <div className="p-3 bg-brand-card rounded-sm text-brand-accent">
+                    <div className="p-3 bg-brand-card/80 backdrop-blur-sm rounded-sm text-brand-accent">
                       {step.icon}
                     </div>
                     <span className="font-serif text-3xl font-light text-brand-accent/20">
@@ -144,7 +151,7 @@ export default function HowItWorksPage() {
       </section>
 
       {/* 4. Footer CTA */}
-      <section className="bg-brand-bg py-24 text-center border-b border-brand-border">
+      <section className="bg-brand-bg/50 backdrop-blur-sm py-24 text-center border-b border-brand-border">
         <div className="max-w-3xl mx-auto px-6">
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-brand-text mb-6">
             Check your eligibility in 2 minutes.
@@ -161,6 +168,7 @@ export default function HowItWorksPage() {
           </Link>
         </div>
       </section>
+      </div>
     </div>
   );
 }
