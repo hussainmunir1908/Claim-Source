@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { writeFile, mkdir } from "fs/promises";
+import { put } from "@vercel/blob";
 import path from "path";
 import { checkAuthFromRequest } from "@/lib/auth";
 
@@ -28,27 +28,25 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Image must be under 10 MB" }, { status: 400 });
     }
 
-    const bytes = await file.arrayBuffer();
-    const buffer = Buffer.from(bytes);
-
-    const uploadDir = path.join(process.cwd(), "public", "uploads", "blog");
-    await mkdir(uploadDir, { recursive: true });
-
     // Sanitize filename
-    const ext = path.extname(file.name).toLowerCase() || ".jpg";
-    const baseName = path.basename(file.name, ext).replace(/[^a-zA-Z0-9_-]/g, "_").slice(0, 40);
+    const originalName = file.name || "image.jpg";
+    const ext = path.extname(originalName).toLowerCase() || ".jpg";
+    const baseName = path.basename(originalName, ext).replace(/[^a-zA-Z0-9_-]/g, "_").slice(0, 40);
     const filename = `${Date.now()}-${baseName}${ext}`;
-    const filepath = path.join(uploadDir, filename);
 
-    await writeFile(filepath, buffer);
+    // Upload to Vercel Blob
+    const blob = await put(`blog/${filename}`, file, {
+      access: "public",
+    });
 
     return NextResponse.json({
       success: true,
-      url: `/uploads/blog/${filename}`,
-      filename,
+      url: blob.url,
+      filename: filename,
     });
   } catch (err) {
     console.error("Image upload error:", err);
-    return NextResponse.json({ error: "Upload failed" }, { status: 500 });
+    const errorMessage = err instanceof Error ? err.message : String(err);
+    return NextResponse.json({ error: errorMessage || "Upload failed" }, { status: 500 });
   }
 }
