@@ -199,6 +199,16 @@ function __OriginkitBase_RoundCarousel({
 }
 
 const __originkitPresetProps = {
+  "images": [
+    { "src": "/img1.jpeg" },
+    { "src": "/img2.jpg" },
+    { "src": "/img3.jpg" },
+    { "src": "/img4.jpg" },
+    { "src": "/img5.jpg" },
+    { "src": "/img6.jpg" },
+    { "src": "/img7.jpg" },
+    { "src": "/img8.jpg" }
+  ],
   "imageWidth": 251,
   "imageHeight": 205,
   "speed": 4,
