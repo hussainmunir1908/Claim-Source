@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, ClipboardCheck, Award, MessageSquareCheck, Check } from "lucide-react";
 import type { Metadata } from "next";
+import RoundCarousel from "@/components/RoundCarousel";
 
 export const metadata: Metadata = {
   title: "How It Works",
@@ -32,17 +33,24 @@ export default function HowItWorksPage() {
   return (
     <div className="bg-brand-bg">
       {/* 1. Page Header */}
-      <section className="py-20 md:py-32 border-b border-brand-border">
+      <section className="py-20 md:py-32 border-b border-brand-border overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <span className="text-[10px] uppercase tracking-[0.25em] text-brand-accent font-semibold block mb-4">
-            Our Process
-          </span>
-          <h1 className="font-serif text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight text-brand-text leading-[1.1] max-w-4xl">
-            A simple, secure path to clarity.
-          </h1>
-          <p className="text-brand-muted text-base md:text-lg max-w-2xl leading-relaxed mt-8 font-light">
-            We believe checking your eligibility should be transparent and straightforward. Here is how we guide your enquiry from initial check to professional review.
-          </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+            <div className="relative z-10">
+              <span className="text-[10px] uppercase tracking-[0.25em] text-brand-accent font-semibold block mb-4">
+                Our Process
+              </span>
+              <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-brand-text leading-[1.1] max-w-2xl">
+                A simple, secure path to clarity.
+              </h1>
+              <p className="text-brand-muted text-base md:text-lg max-w-xl leading-relaxed mt-8 font-light">
+                We believe checking your eligibility should be transparent and straightforward. Here is how we guide your enquiry from initial check to professional review.
+              </p>
+            </div>
+            <div className="relative h-[300px] md:h-[400px] lg:h-[500px] w-full flex items-center justify-center">
+              <RoundCarousel />
+            </div>
+          </div>
         </div>
       </section>
 
