@@ -134,7 +134,7 @@ export default function Home() {
                 Assessing Eligibility
               </span>
               <p className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] text-brand-text leading-[1.15] pitch-fade-up">
-                Helping tenants resolve housing disrepair and assisting injured individuals in establishing legal paths.
+                Helping individuals in getting the compensation they deserve.
               </p>
               {/* Check list */}
               <div className="pt-4 space-y-3 pitch-fade-up">
