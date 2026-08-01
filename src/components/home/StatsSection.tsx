@@ -28,9 +28,9 @@ function useCounter(target: number, duration: number = 2, started: boolean = fal
 }
 
 const stats = [
-  { label: "Assessments Completed", value: 10000, suffix: "+", prefix: "" },
+  { label: "Assessments Completed", value: 286, suffix: "", prefix: "" },
   { label: "Satisfaction Rate", value: 98, suffix: "%", prefix: "" },
-  { label: "Years Experience", value: 5, suffix: "+", prefix: "" },
+  { label: "Years Experience", value: 14, suffix: "", prefix: "" },
   { label: "Partner Solicitors", value: 50, suffix: "+", prefix: "" },
 ];
 

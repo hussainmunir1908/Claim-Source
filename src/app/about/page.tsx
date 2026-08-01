@@ -33,8 +33,8 @@ export default function AboutPage() {
   const [counterStarted, setCounterStarted] = useState(false);
   const statsSectionRef = useRef<HTMLDivElement>(null);
 
-  const c1 = useCounter(10000, 2.2, counterStarted);
-  const c2 = useCounter(5, 1.5, counterStarted);
+  const c1 = useCounter(286, 2.2, counterStarted);
+  const c2 = useCounter(14, 1.5, counterStarted);
   const c3 = useCounter(50, 2.0, counterStarted);
 
   useEffect(() => {
@@ -184,8 +184,8 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-6 md:px-12 py-16">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-0 divide-y sm:divide-y-0 sm:divide-x divide-brand-border">
             {[
-              { value: c1, suffix: "+", label: "Assessments Completed" },
-              { value: c2, suffix: "+ Years", label: "Industry Experience" },
+              { value: c1, suffix: "", label: "Assessments Completed" },
+              { value: c2, suffix: " Years", label: "Industry Experience" },
               { value: c3, suffix: "+ Partners", label: "Verified Solicitors" },
             ].map((stat, idx) => (
               <div key={idx} className="about-stat text-center py-10 px-6 group hover:bg-brand-bg/50 transition-colors duration-300">
