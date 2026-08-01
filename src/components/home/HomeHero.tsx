@@ -157,7 +157,7 @@ export default function HomeHero() {
           playsInline
           className="w-full h-full object-cover object-center pointer-events-none scale-105"
         >
-          <source src="/vecteezy_customer-service-good-cooperation-consultation-between-a_26132379.mp4" type="video/mp4" />
+          <source src="/hero-home-video.mp4" type="video/mp4" />
         </video>
       </div>
 

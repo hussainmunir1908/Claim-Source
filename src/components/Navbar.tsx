@@ -67,10 +67,10 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-5 md:px-10 relative z-10 flex items-center justify-between gap-6">
           {/* Logo */}
           <Link href="/" aria-label="Claim Source — Home" className="flex-shrink-0 group focus:outline-none">
-            <div className={`relative overflow-hidden rounded-xl transition-all duration-500 bg-white/95 backdrop-blur-md shadow-lg border border-white/20 flex items-center justify-center ${
+            <div className={`relative flex items-center justify-center transition-all duration-500 ${
               scrolled
-                ? "w-16 h-16 md:w-20 md:h-20 p-2"
-                : "w-20 h-20 md:w-24 md:h-24 p-2.5"
+                ? "w-24 h-12 md:w-32 md:h-16"
+                : "w-32 h-16 md:w-40 md:h-20"
             }`}>
               <Image
                 src="/logo.png"
