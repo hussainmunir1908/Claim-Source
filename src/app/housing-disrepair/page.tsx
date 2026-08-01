@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, ShieldAlert, FileText, Calendar, Building2 } from "lucide-react";
+import { ArrowRight, CheckCircle2, ShieldAlert, FileText, Calendar, Building2, Droplets, Wrench, Thermometer, House, Zap, Bug } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -13,26 +13,32 @@ export default function HousingDisrepairPage() {
     {
       title: "Damp & Mould",
       desc: "Persistent dampness on walls, floors, or ceilings, and toxic mould growth caused by structural failures, poor ventilation, or water infiltration.",
+      icon: <Droplets className="w-6 h-6 text-brand-accent mb-4" />
     },
     {
       title: "Water Leaks & Plumbing",
       desc: "Leaking pipes, broken drains, water damage from roofing failures, or constant toilet/sink blockages left unresolved by the landlord.",
+      icon: <Wrench className="w-6 h-6 text-brand-accent mb-4" />
     },
     {
       title: "Heating & Hot Water",
       desc: "Faulty boilers, broken radiators, or lack of hot water. Landlords are legally required to provide working heating and sanitation.",
+      icon: <Thermometer className="w-6 h-6 text-brand-accent mb-4" />
     },
     {
       title: "Structural Disrepair",
       desc: "Cracked brickwork, collapsing ceilings, damp walls, broken windows/doors, or roofing failures that compromise safety and weather-proofing.",
+      icon: <House className="w-6 h-6 text-brand-accent mb-4" />
     },
     {
       title: "Electrical & Fire Hazards",
       desc: "Unsafe or exposed wiring, broken sockets, lack of smoke detectors, or electrical faults that cause constant blackouts or present safety risks.",
+      icon: <Zap className="w-6 h-6 text-brand-accent mb-4" />
     },
     {
       title: "Pest Infestations",
       desc: "Rats, mice, cockroaches, or bedbug infestations arising from structural gaps, damp walls, or unresolved repair problems in the building.",
+      icon: <Bug className="w-6 h-6 text-brand-accent mb-4" />
     },
   ];
 
@@ -44,9 +50,15 @@ export default function HousingDisrepairPage() {
   ];
 
   return (
-    <div className="bg-brand-bg">
+    <div 
+      className="relative min-h-screen bg-cover bg-center bg-fixed"
+      style={{ backgroundImage: 'url("/bg-housing.jpg")' }}
+    >
+      <div className="absolute inset-0 bg-[#FAF9F6]/70 backdrop-blur-[4px] z-0" />
+      
+      <div className="relative z-10">
       {/* 1. Page Hero */}
-      <section className="relative min-h-[60vh] flex items-center justify-center py-20 overflow-hidden bg-brand-bg border-b border-brand-border">
+      <section className="relative min-h-[60vh] flex items-center justify-center py-20 overflow-hidden border-b border-brand-border">
         <div className="absolute inset-0 z-0">
           <Image
             src="/hero-disrepair.png"
@@ -103,7 +115,7 @@ export default function HousingDisrepairPage() {
       </section>
 
       {/* 3. Common Problems Grid */}
-      <section className="bg-brand-card py-24 md:py-32 border-b border-brand-border">
+      <section className="py-24 md:py-32 border-b border-brand-border">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="text-center max-w-2xl mx-auto mb-20">
             <span className="text-[10px] uppercase tracking-[0.25em] text-brand-accent font-semibold block mb-4">
@@ -121,9 +133,10 @@ export default function HousingDisrepairPage() {
             {commonIssues.map((issue, idx) => (
               <div
                 key={idx}
-                className="bg-brand-bg p-8 border border-brand-border rounded-sm hover:border-brand-accent/30 transition-all duration-300 flex flex-col justify-between"
+                className="bg-brand-bg/80 backdrop-blur-md p-8 border border-brand-border rounded-sm hover:border-brand-accent/30 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
+                  {issue.icon}
                   <h3 className="font-serif text-lg md:text-xl font-bold text-brand-text mb-3">
                     {issue.title}
                   </h3>
@@ -194,7 +207,7 @@ export default function HousingDisrepairPage() {
               </div>
             </div>
 
-            <div className="bg-brand-card p-8 md:p-12 border border-brand-border rounded-sm">
+            <div className="bg-brand-card/80 backdrop-blur-md p-8 md:p-12 border border-brand-border rounded-sm">
               <span className="text-[10px] uppercase tracking-[0.25em] text-brand-accent font-semibold block mb-4">
                 Eligibility Checklist
               </span>
@@ -224,13 +237,13 @@ export default function HousingDisrepairPage() {
       </section>
 
       {/* 5. FAQs Block */}
-      <section className="bg-brand-card py-24 md:py-32 border-b border-brand-border">
+      <section className="py-24 md:py-32 border-b border-brand-border">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="font-serif text-3xl font-bold tracking-tight text-center text-brand-text mb-12">
             Housing Disrepair FAQs
           </h2>
           <div className="space-y-6">
-            <div className="bg-brand-bg p-6 border border-brand-border rounded-sm">
+            <div className="bg-brand-bg/80 backdrop-blur-md p-6 border border-brand-border rounded-sm">
               <h3 className="font-serif text-base md:text-lg font-bold text-brand-text mb-2">
                 Can my landlord evict me if I report disrepair?
               </h3>
@@ -238,7 +251,7 @@ export default function HousingDisrepairPage() {
                 By law, tenants are protected against &quot;retaliatory eviction&quot; under the Deregulation Act 2015, provided they have reported the disrepair and the council has issued a notice. Seeking repair enforcement is a legal right, not a ground for eviction.
               </p>
             </div>
-            <div className="bg-brand-bg p-6 border border-brand-border rounded-sm">
+            <div className="bg-brand-bg/80 backdrop-blur-md p-6 border border-brand-border rounded-sm">
               <h3 className="font-serif text-base md:text-lg font-bold text-brand-text mb-2">
                 What compensation may I be entitled to?
               </h3>
@@ -251,7 +264,7 @@ export default function HousingDisrepairPage() {
       </section>
 
       {/* 6. final call to action */}
-      <section className="bg-brand-bg py-24 text-center border-b border-brand-border">
+      <section className="py-24 text-center border-b border-brand-border">
         <div className="max-w-3xl mx-auto px-6">
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-brand-text mb-6">
             Assess your property circumstances today.
@@ -268,6 +281,7 @@ export default function HousingDisrepairPage() {
           </Link>
         </div>
       </section>
+      </div>
     </div>
   );
 }
