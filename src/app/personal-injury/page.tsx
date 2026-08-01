@@ -65,15 +65,11 @@ export default function PersonalInjuryPage() {
       {/* 1. Page Hero */}
       <section className="relative min-h-[60vh] flex items-center justify-center py-20 overflow-hidden bg-brand-bg border-b border-brand-border">
         <div className="absolute inset-0 z-0">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
+          <img
+            src="/hero-injury.webp"
+            alt="Personal Injury Claim Background"
             className="w-full h-full object-cover object-center filter brightness-[0.35] scale-105"
-          >
-            <source src="/hero-injury.mp4" type="video/mp4" />
-          </video>
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-brand-bg via-transparent to-black/20" />
         </div>
 

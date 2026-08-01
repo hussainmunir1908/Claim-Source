@@ -150,15 +150,12 @@ export default function HomeHero() {
     >
       {/* Background Cinematic Video */}
       <div className="absolute inset-0 z-0 overflow-hidden" ref={parallaxLayerRef}>
-        <video 
-          autoPlay 
-          loop 
-          muted 
-          playsInline
-          className="w-full h-full object-cover object-center pointer-events-none scale-105"
-        >
-          <source src="/hero-home-video.mp4" type="video/mp4" />
-        </video>
+          <img
+            src="/hero-home.webp"
+            alt="Hero Background Animation"
+            className="w-full h-full object-cover object-center pointer-events-none scale-105"
+            ref={imageRef}
+          />
       </div>
 
       {/* Dark gradient overlay */}
