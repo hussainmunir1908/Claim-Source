@@ -8,6 +8,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import CookieBanner from "./CookieBanner";
+import MouseEffects from "./MouseEffects";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -107,6 +108,9 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
       </main>
       <Footer />
       <CookieBanner />
+      <div className="fixed inset-0 z-[9999] pointer-events-none">
+        <MouseEffects interactionMode="sniper" effectSize={120} />
+      </div>
     </div>
   );
 }
