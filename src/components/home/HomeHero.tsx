@@ -193,13 +193,6 @@ export default function HomeHero() {
 
       {/* Content Container */}
       <div className="hero-content-parallax relative z-20 max-w-5xl mx-auto text-center flex flex-col items-center px-6 py-28 md:py-36">
-        {/* Floating Badge */}
-        <div className="hero-badge float-badge mb-10">
-          <span className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] font-semibold text-white/95 glass px-5 py-2.5 rounded-full shadow-lg border border-white/20">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            UK Marketing Platform & Qualification Service
-          </span>
-        </div>
 
         {/* Large Editorial Headline */}
         <h1
