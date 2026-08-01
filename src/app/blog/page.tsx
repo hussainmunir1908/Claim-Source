@@ -10,8 +10,8 @@ export const metadata = {
 
 export const dynamic = "force-dynamic";
 
-export default function BlogPage() {
-  const posts = getPublishedPosts();
+export default async function BlogPage() {
+  const posts = await getPublishedPosts();
 
   return (
     <div className="bg-brand-bg min-h-screen">

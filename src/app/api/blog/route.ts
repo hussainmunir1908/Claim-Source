@@ -11,11 +11,11 @@ export async function GET(req: Request) {
     if (!checkAuthFromRequest(req)) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
-    const posts = getAllPosts().slice(0, limit);
+    const posts = (await getAllPosts()).slice(0, limit);
     return NextResponse.json({ posts });
   }
 
-  const posts = getPublishedPosts().slice(0, limit);
+  const posts = (await getPublishedPosts()).slice(0, limit);
   return NextResponse.json({ posts });
 }
 
@@ -32,7 +32,7 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Title and content are required" }, { status: 400 });
     }
 
-    const post = createPost({
+    const post = await createPost({
       title: title.trim(),
       excerpt: excerpt?.trim() ?? content.slice(0, 160) + "...",
       content: content.trim(),

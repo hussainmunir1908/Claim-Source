@@ -8,7 +8,7 @@ export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const post = await getPostBySlug(slug);
   if (!post) return { title: "Not Found | Claim Source" };
   return {
     title: `${post.title} | Claim Source Blog`,
@@ -23,10 +23,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const post = await getPostBySlug(slug);
   if (!post || !post.published) notFound();
 
-  const allPosts = getPublishedPosts();
+  const allPosts = await getPublishedPosts();
   const related = allPosts.filter((p) => p.id !== post.id).slice(0, 3);
 
   // Render content with basic paragraph support

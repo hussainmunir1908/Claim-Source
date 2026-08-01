@@ -1,5 +1,4 @@
-import fs from "fs";
-import path from "path";
+import { put, list } from "@vercel/blob";
 import { randomUUID } from "crypto";
 
 export interface BlogPost {
@@ -18,40 +17,41 @@ export interface BlogPost {
   updatedAt: string;
 }
 
-const DATA_FILE = path.join(process.cwd(), "data", "blog-posts.json");
-
-function ensureDataFile() {
-  const dir = path.dirname(DATA_FILE);
-  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-  if (!fs.existsSync(DATA_FILE)) fs.writeFileSync(DATA_FILE, "[]", "utf8");
-}
-
-export function getAllPosts(): BlogPost[] {
-  ensureDataFile();
+export async function getAllPosts(): Promise<BlogPost[]> {
   try {
-    const raw = fs.readFileSync(DATA_FILE, "utf8");
-    return JSON.parse(raw) as BlogPost[];
-  } catch {
-    return [];
+    const { blobs } = await list({ prefix: "blog-posts.json" });
+    if (blobs.length > 0) {
+      // Append timestamp to bypass Vercel Blob CDN caching
+      const res = await fetch(blobs[0].url + "?t=" + Date.now(), { cache: "no-store" });
+      if (res.ok) {
+        return (await res.json()) as BlogPost[];
+      }
+    }
+  } catch (err) {
+    console.error("Failed to load blog posts:", err);
   }
+  return [];
 }
 
-export function getPublishedPosts(): BlogPost[] {
-  return getAllPosts()
+export async function getPublishedPosts(): Promise<BlogPost[]> {
+  const posts = await getAllPosts();
+  return posts
     .filter((p) => p.published)
     .sort((a, b) => new Date(b.publishedAt ?? b.createdAt).getTime() - new Date(a.publishedAt ?? a.createdAt).getTime());
 }
 
-export function getPostById(id: string): BlogPost | null {
-  return getAllPosts().find((p) => p.id === id) ?? null;
+export async function getPostById(id: string): Promise<BlogPost | null> {
+  const posts = await getAllPosts();
+  return posts.find((p) => p.id === id) ?? null;
 }
 
-export function getPostBySlug(slug: string): BlogPost | null {
-  return getAllPosts().find((p) => p.slug === slug) ?? null;
+export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
+  const posts = await getAllPosts();
+  return posts.find((p) => p.slug === slug) ?? null;
 }
 
-export function createPost(data: Omit<BlogPost, "id" | "slug" | "createdAt" | "updatedAt">): BlogPost {
-  const posts = getAllPosts();
+export async function createPost(data: Omit<BlogPost, "id" | "slug" | "createdAt" | "updatedAt">): Promise<BlogPost> {
+  const posts = await getAllPosts();
   const slug = slugify(data.title) + "-" + Date.now();
   const now = new Date().toISOString();
   const post: BlogPost = {
@@ -63,12 +63,12 @@ export function createPost(data: Omit<BlogPost, "id" | "slug" | "createdAt" | "u
     publishedAt: data.published ? (data.publishedAt ?? now) : null,
   };
   posts.unshift(post);
-  savePosts(posts);
+  await savePosts(posts);
   return post;
 }
 
-export function updatePost(id: string, data: Partial<BlogPost>): BlogPost | null {
-  const posts = getAllPosts();
+export async function updatePost(id: string, data: Partial<BlogPost>): Promise<BlogPost | null> {
+  const posts = await getAllPosts();
   const idx = posts.findIndex((p) => p.id === id);
   if (idx === -1) return null;
   const existing = posts[idx];
@@ -82,22 +82,25 @@ export function updatePost(id: string, data: Partial<BlogPost>): BlogPost | null
     publishedAt: data.published && !existing.publishedAt ? now : (data.publishedAt ?? existing.publishedAt),
   };
   posts[idx] = updated;
-  savePosts(posts);
+  await savePosts(posts);
   return updated;
 }
 
-export function deletePost(id: string): boolean {
-  const posts = getAllPosts();
+export async function deletePost(id: string): Promise<boolean> {
+  const posts = await getAllPosts();
   const idx = posts.findIndex((p) => p.id === id);
   if (idx === -1) return false;
   posts.splice(idx, 1);
-  savePosts(posts);
+  await savePosts(posts);
   return true;
 }
 
-function savePosts(posts: BlogPost[]) {
-  ensureDataFile();
-  fs.writeFileSync(DATA_FILE, JSON.stringify(posts, null, 2), "utf8");
+async function savePosts(posts: BlogPost[]) {
+  await put("blog-posts.json", JSON.stringify(posts, null, 2), {
+    access: "public",
+    addRandomSuffix: false,
+    contentType: "application/json",
+  });
 }
 
 export function slugify(text: string): string {
