@@ -69,8 +69,8 @@ export default function Navbar() {
           <Link href="/" aria-label="Claim Source — Home" className="flex-shrink-0 group focus:outline-none">
             <div className={`relative flex items-center justify-center transition-all duration-500 ${
               scrolled
-                ? "w-24 h-12 md:w-32 md:h-16"
-                : "w-32 h-16 md:w-40 md:h-20"
+                ? "w-14 h-14 md:w-16 md:h-16"
+                : "w-16 h-16 md:w-20 md:h-20"
             }`}>
               <Image
                 src="/logo.png"
