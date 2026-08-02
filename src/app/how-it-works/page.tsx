@@ -31,12 +31,14 @@ export default function HowItWorksPage() {
   ];
 
   return (
-    <div 
-      className="relative min-h-screen bg-cover bg-center bg-fixed"
-      style={{ backgroundImage: 'url("/bg-how-it-works.jpg")' }}
-    >
+    <div className="relative min-h-screen">
+      {/* Hardware-accelerated fixed background to prevent iOS Safari lag & zoom bugs */}
+      <div 
+        className="fixed inset-0 z-0 bg-cover bg-center"
+        style={{ backgroundImage: 'url("/bg-how-it-works.jpg")' }}
+      />
       {/* Background overlay so text remains legible */}
-      <div className="absolute inset-0 bg-[#FAF9F6]/70 backdrop-blur-[4px] z-0" />
+      <div className="fixed inset-0 bg-[#FAF9F6]/70 backdrop-blur-[4px] z-0" />
       
       <div className="relative z-10">
       {/* 1. Page Header */}
