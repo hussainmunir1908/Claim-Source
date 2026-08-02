@@ -251,7 +251,6 @@ export default function InjuryClaimPage() {
     const payload = {
       campaign: "Personal Injury",
       timestamp: new Date().toISOString(),
-      leadId: "PI-" + Math.floor(100000 + Math.random() * 900000),
       ...formData,
       utmSource: utm.utm_source || "",
       utmMedium: utm.utm_medium || "",
@@ -266,16 +265,23 @@ export default function InjuryClaimPage() {
     };
 
     try {
-      await fetch("/api/lead", {
+      const response = await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
-      setRefNumber(payload.leadId);
+      const responseData = await response.json();
+      
+      if (responseData.leadId) {
+        setRefNumber(responseData.leadId);
+      } else {
+        setRefNumber("PI-" + Math.floor(1000 + Math.random() * 9000)); // Fallback
+      }
+      
       setSubmitted(true);
       sessionStorage.removeItem("claim_source_injury_form");
     } catch (err) {
-      setRefNumber(payload.leadId);
+      setRefNumber("PI-" + Math.floor(1000 + Math.random() * 9000)); // Fallback
       setSubmitted(true);
     } finally {
       setLoading(false);

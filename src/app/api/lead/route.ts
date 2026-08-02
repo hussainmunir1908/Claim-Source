@@ -32,36 +32,18 @@ export async function POST(req: Request) {
       return NextResponse.json({ success: false, errors }, { status: 400 });
     }
 
-    // 3. Prepare Lead Log Folder (Fallback / Retry mechanism)
-    const logDir = path.join(process.cwd(), "leads_log");
-    if (!fs.existsSync(logDir)) {
-      fs.mkdirSync(logDir, { recursive: true });
-    }
-
-    const campaignFolder = data.campaign === "Personal Injury" ? "personal-injury" : "housing-disrepair";
-    const campaignLogDir = path.join(logDir, campaignFolder);
-    if (!fs.existsSync(campaignLogDir)) {
-      fs.mkdirSync(campaignLogDir, { recursive: true });
-    }
-
-    // Save lead payload locally first
-    const filename = `${data.leadId || "LEAD"}_${Date.now()}.json`;
-    const logPath = path.join(campaignLogDir, filename);
-    fs.writeFileSync(logPath, JSON.stringify(data, null, 2), "utf8");
-    console.log(`Lead ${data.leadId} logged successfully at ${logPath}`);
-
-    // 4. Send Lead to Google Sheets (Webhook or Sheets API)
-    // We check for Google Apps Script Webhooks or direct API environment variables.
+    // 3. Send Lead to Google Sheets Webhook
     const webhookUrl =
       data.campaign === "Personal Injury"
-        ? process.env.GOOGLE_SHEET_INJURY_WEBHOOK_URL
-        : process.env.GOOGLE_SHEET_DISREPAIR_WEBHOOK_URL;
+        ? process.env.GOOGLE_SHEET_INJURY_WEBHOOK_URL || process.env.GOOGLE_SHEET_WEBHOOK_URL
+        : process.env.GOOGLE_SHEET_DISREPAIR_WEBHOOK_URL || process.env.GOOGLE_SHEET_WEBHOOK_URL;
 
     let sheetsSyncSuccess = false;
+    let finalLeadId = data.leadId || "";
 
     if (webhookUrl) {
       try {
-        console.log(`Sending lead ${data.leadId} to Webhook: ${webhookUrl}`);
+        console.log(`Sending lead to Webhook: ${webhookUrl}`);
         // Send request with an API Secret if configured
         const headers: Record<string, string> = { "Content-Type": "application/json" };
         if (process.env.API_SECRET) {
@@ -76,26 +58,27 @@ export async function POST(req: Request) {
         });
 
         if (syncRes.ok) {
+          const responseData = await syncRes.json();
           sheetsSyncSuccess = true;
-          console.log(`Lead ${data.leadId} synchronized successfully with Google Sheets Webhook.`);
+          if (responseData.leadId) {
+             finalLeadId = responseData.leadId;
+          }
+          console.log(`Lead ${finalLeadId} synchronized successfully with Google Sheets Webhook.`);
         } else {
           console.error(`Google Sheets Webhook responded with status: ${syncRes.status}`);
         }
       } catch (err) {
-        console.error(`Failed to synchronize lead ${data.leadId} with Webhook:`, err);
+        console.error(`Failed to synchronize lead with Webhook:`, err);
       }
     } else {
-      console.warn(
-        `Google Sheets webhook environment variable is NOT set for campaign "${data.campaign}". ` +
-        `Lead has been saved locally at ${logPath} and needs manual synchronization.`
-      );
+      console.warn(`Google Sheets webhook environment variable is NOT set for campaign "${data.campaign}". Lead not synced.`);
     }
 
     return NextResponse.json({
       success: true,
-      leadId: data.leadId,
+      leadId: finalLeadId,
       synced: sheetsSyncSuccess,
-      message: "Lead processed and logged successfully.",
+      message: "Lead processed successfully.",
     });
   } catch (error) {
     console.error("API error during lead registration:", error);

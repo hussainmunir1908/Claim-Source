@@ -272,7 +272,6 @@ export default function HousingClaimPage() {
     const payload = {
       campaign: "Housing Disrepair",
       timestamp: new Date().toISOString(),
-      leadId: "HD-" + Math.floor(100000 + Math.random() * 900000),
       ...formData,
       utmSource: utm.utm_source || "",
       utmMedium: utm.utm_medium || "",
@@ -287,16 +286,23 @@ export default function HousingClaimPage() {
     };
 
     try {
-      await fetch("/api/lead", {
+      const response = await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
-      setRefNumber(payload.leadId);
+      const responseData = await response.json();
+      
+      if (responseData.leadId) {
+        setRefNumber(responseData.leadId);
+      } else {
+        setRefNumber("HDR-" + Math.floor(1000 + Math.random() * 9000)); // Fallback
+      }
+      
       setSubmitted(true);
       sessionStorage.removeItem("claim_source_disrepair_form");
     } catch (err) {
-      setRefNumber(payload.leadId);
+      setRefNumber("HDR-" + Math.floor(1000 + Math.random() * 9000)); // Fallback
       setSubmitted(true);
     } finally {
       setLoading(false);
