@@ -525,6 +525,48 @@ img {
   }
 }
 
+/* ==========================================
+   MOBILE BACKGROUND IMAGE FIXES
+   ========================================== */
+
+/* iOS Safari fix: background-attachment: fixed causes blurry bg on mobile.
+   Force all section backgrounds to scroll normally. */
+@media (max-width: 768px) {
+  section, .relative {
+    background-attachment: scroll !important;
+  }
+
+  /* Full-screen image sections: ensure they cover the full area */
+  .relative.overflow-hidden > [style*="position: absolute"] img,
+  .absolute.inset-0 img {
+    object-fit: cover !important;
+    width: 100% !important;
+    height: 100% !important;
+    position: absolute !important;
+    inset: 0 !important;
+  }
+
+  /* Hero content: always below the 64px navbar */
+  .hero-content-parallax {
+    padding-top: 96px !important;
+    min-height: calc(100svh - 64px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  /* Prevent GSAP from over-scaling images on mobile which causes blur */
+  [data-nimg="fill"] {
+    transform: none !important;
+    -webkit-transform: none !important;
+  }
+
+  /* Section hero image containers */
+  section > .absolute.inset-0 {
+    overflow: hidden;
+  }
+}
+
 /* Prevent the fixed nav from covering hero content on shorter phones */
 @media (max-height: 600px) and (max-width: 768px) {
   .hero-content-parallax {
@@ -532,4 +574,3 @@ img {
     padding-bottom: 40px !important;
   }
 }
-

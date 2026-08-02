@@ -23,24 +23,31 @@ export default function HomeHero() {
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const isMobile = window.innerWidth <= 768;
 
     const ctx = gsap.context(() => {
       // Setup initial states
       gsap.set(".animate-word", { y: "110%", opacity: 0 });
       gsap.set(contentRef.current, { y: 40, opacity: 0 });
-      gsap.set(imageRef.current, { scale: 1.18, filter: "brightness(0.95)" });
+      // On mobile skip scale to keep image sharp
+      if (!isMobile) {
+        gsap.set(imageRef.current, { scale: 1.18, filter: "brightness(0.95)" });
+      }
       gsap.set(".hero-badge", { opacity: 0, y: -20, scale: 0.9 });
       gsap.set(".stat-chip", { opacity: 0, y: 20, scale: 0.9 });
 
       // Cinematic entrance timeline
       const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
 
-      tl.to(imageRef.current, {
-        scale: 1,
-        filter: "brightness(1)",
-        duration: 2.5,
-        ease: "power2.out",
-      }, "0")
+      if (!isMobile) {
+        tl.to(imageRef.current, {
+          scale: 1,
+          filter: "brightness(1)",
+          duration: 2.5,
+          ease: "power2.out",
+        }, "0");
+      }
+      tl
       .to(".hero-badge", {
         opacity: 1,
         y: 0,
@@ -68,8 +75,8 @@ export default function HomeHero() {
         ease: "back.out(1.5)",
       }, "1.2");
 
-      // Scroll-driven Parallax
-      if (!prefersReducedMotion && imageRef.current) {
+      // Scroll-driven Parallax — desktop only
+      if (!prefersReducedMotion && !isMobile && imageRef.current) {
         gsap.to(imageRef.current, {
           scrollTrigger: {
             trigger: containerRef.current,
@@ -139,9 +146,8 @@ export default function HomeHero() {
             priority
             unoptimized
             sizes="100vw"
-            className="object-cover object-top pointer-events-none"
+            className="object-cover object-[center_20%] pointer-events-none"
             ref={imageRef}
-            style={{ imageRendering: 'auto', WebkitFontSmoothing: 'antialiased' }}
           />
       </div>
 
@@ -176,7 +182,7 @@ export default function HomeHero() {
 
 
       {/* Content Container */}
-      <div className="hero-content-parallax relative z-20 w-full max-w-5xl mx-auto text-center flex flex-col items-center px-5 sm:px-8 md:px-12 pb-16 md:pb-24 pt-8">
+      <div className="hero-content-parallax relative z-20 w-full max-w-5xl mx-auto text-center flex flex-col items-center px-5 sm:px-8 md:px-12 pb-16 md:pb-24 pt-24 md:pt-8">
 
         <h1
           ref={titleRef}

@@ -23,7 +23,8 @@
 .card-nav-top {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  position: relative;
   height: 72px;
   padding: 0 24px;
   max-width: 80rem;
@@ -31,6 +32,8 @@
 }
 
 .hamburger-menu {
+  position: absolute;
+  left: 24px;
   width: 24px;
   height: 18px;
   display: flex;
@@ -80,6 +83,8 @@
 }
 
 .card-nav-cta-button {
+  position: absolute;
+  right: 24px;
   padding: 10px 20px;
   border-radius: 4px;
   font-size: 11px;
@@ -156,7 +161,18 @@
     height: 64px;
     padding: 0 16px;
   }
-  
+
+  .hamburger-menu {
+    left: 16px;
+  }
+
+  .card-nav-cta-button {
+    right: 16px;
+    font-size: 9px;
+    padding: 8px 12px;
+    letter-spacing: 0.1em;
+  }
+
   .logo {
     height: 52px !important;
   }
@@ -168,12 +184,6 @@
   .card-nav-content {
     flex-direction: column;
     padding: 16px;
-  }
-  
-  .card-nav-cta-button {
-    font-size: 9px;
-    padding: 8px 12px;
-    letter-spacing: 0.1em;
   }
 
   .nav-card {
