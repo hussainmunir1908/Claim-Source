@@ -92,8 +92,7 @@ export default function TrustSection() {
       <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-brand-accent/5 blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-brand-accent/4 blur-[100px] pointer-events-none" />
 
-      <div className="absolute left-[10%] top-0 bottom-0 w-[1px] scroll-line-v hidden md:block opacity-30 z-0" />
-      <div className="absolute right-[10%] top-0 bottom-0 w-[1px] scroll-line-v hidden md:block opacity-30 z-0" />
+
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 md:gap-16">

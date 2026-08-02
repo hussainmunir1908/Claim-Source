@@ -119,8 +119,7 @@ export default function Home() {
         className="bg-brand-bg py-24 md:py-36 border-b border-brand-border relative overflow-hidden"
       >
         {/* Fine vertical lines */}
-        <div className="absolute left-[10%] top-0 bottom-0 w-[1px] scroll-line-v hidden md:block opacity-30 z-0" />
-        <div className="absolute right-[10%] top-0 bottom-0 w-[1px] scroll-line-v hidden md:block opacity-30 z-0" />
+
 
         {/* Decorative watermark */}
         <div className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/4 font-serif text-[18vw] font-bold text-brand-accent/[0.04] select-none pointer-events-none leading-none">
@@ -206,8 +205,7 @@ export default function Home() {
           aria-hidden
         />
 
-        <div className="absolute left-[10%] top-0 bottom-0 w-[1px] scroll-line-v hidden md:block opacity-30 z-0" />
-        <div className="absolute right-[10%] top-0 bottom-0 w-[1px] scroll-line-v hidden md:block opacity-30 z-0" />
+
 
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-20">

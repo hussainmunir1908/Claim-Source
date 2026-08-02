@@ -170,9 +170,7 @@ export default function HomeHero() {
       <div className="absolute top-1/4 left-[15%] w-[300px] h-[300px] rounded-full bg-brand-accent/10 blur-[100px] pointer-events-none z-2 orb-1" />
       <div className="absolute bottom-1/4 right-[10%] w-[400px] h-[400px] rounded-full bg-brand-accent/8 blur-[120px] pointer-events-none z-2 orb-2" />
 
-      {/* Editorial vertical lines */}
-      <div className="absolute left-[10%] top-0 bottom-0 w-[1px] scroll-line-v hidden md:block opacity-25 z-5" />
-      <div className="absolute right-[10%] top-0 bottom-0 w-[1px] scroll-line-v hidden md:block opacity-25 z-5" />
+
 
       {/* Content Container */}
       <div className="hero-content-parallax relative z-20 max-w-5xl mx-auto text-center flex flex-col items-center px-6 py-28 md:py-36">
@@ -227,7 +225,7 @@ export default function HomeHero() {
                 <Users className="w-4 h-4" />
               </div>
               <div className="text-left">
-                <div className="font-serif text-lg font-bold leading-none">10,000+</div>
+                <div className="font-serif text-lg font-bold leading-none">286</div>
                 <div className="text-[10px] uppercase tracking-widest text-white/60 mt-0.5">Assessments</div>
               </div>
             </div>

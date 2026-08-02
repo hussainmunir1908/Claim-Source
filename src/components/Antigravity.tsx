@@ -59,10 +59,11 @@ export default function Antigravity({
       particles.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        size: Math.random() * particleSize + 0.5,
-        speedY: Math.random() * -1 - (fieldStrength * 0.1), // Move up (antigravity)
-        speedX: (Math.random() - 0.5) * waveSpeed,
-        opacity: Math.random() * 0.5 + 0.2,
+        size: Math.random() * particleSize + 0.2,
+        speedY: (Math.random() * -0.5 - 0.2) * (fieldStrength * 0.05), // Slower upward movement
+        speedX: (Math.random() - 0.5) * waveSpeed * 0.5,
+        opacity: Math.random() * 0.4 + 0.1,
+        phase: Math.random() * Math.PI * 2, // For opacity pulsing
       });
     }
 
@@ -72,25 +73,32 @@ export default function Antigravity({
       ctx.clearRect(0, 0, width, height);
 
       particles.forEach((p) => {
-        ctx.fillStyle = `rgba(${rgbColor}, ${p.opacity})`;
+        // Pulsing opacity
+        const currentOpacity = p.opacity + Math.sin(Date.now() * 0.001 * pulseSpeed + p.phase) * 0.2;
+        const boundedOpacity = Math.max(0.05, Math.min(0.8, currentOpacity));
+
+        ctx.fillStyle = `rgba(${rgbColor}, ${boundedOpacity})`;
+        ctx.shadowColor = color;
+        ctx.shadowBlur = p.size * 3;
+        
         ctx.beginPath();
         
         if (particleShape === "capsule") {
             if (ctx.roundRect) {
-              ctx.roundRect(p.x, p.y, p.size * 2, p.size * 6, p.size);
+              ctx.roundRect(p.x, p.y, p.size, p.size * 4, p.size / 2);
             } else {
-              ctx.arc(p.x, p.y, p.size * 2, 0, Math.PI * 2);
+              ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
             }
         } else if (particleShape === "square") {
-            ctx.rect(p.x, p.y, p.size * 3, p.size * 3);
+            ctx.rect(p.x, p.y, p.size * 2, p.size * 2);
         } else {
-            ctx.arc(p.x, p.y, p.size * 2, 0, Math.PI * 2);
+            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
         }
         ctx.fill();
 
         if (autoAnimate) {
             p.y += p.speedY;
-            p.x += Math.sin(p.y * 0.01) * p.speedX; // Wavy effect
+            p.x += Math.sin(p.y * 0.01 + p.phase) * p.speedX; // Wavy effect
 
             // Reset if out of bounds
             if (p.y < -20) {
