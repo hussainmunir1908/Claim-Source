@@ -60,12 +60,23 @@
 }
 
 .logo {
-  height: 60px;
-  width: auto;
-  max-width: 180px;
+  height: 64px !important;
+  width: auto !important;
+  max-width: 200px;
   object-fit: contain;
   image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
+  display: block;
+}
+
+/* Override Next.js Image wrapper span */
+.logo-container a span {
+  display: block !important;
+}
+
+.logo-container a > span > img {
+  height: 64px !important;
+  width: auto !important;
+  object-fit: contain;
 }
 
 .card-nav-cta-button {
@@ -147,7 +158,11 @@
   }
   
   .logo {
-    height: 50px;
+    height: 52px !important;
+  }
+
+  .logo-container a > span > img {
+    height: 52px !important;
   }
 
   .card-nav-content {

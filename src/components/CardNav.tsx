@@ -1,6 +1,7 @@
 "use client";
 
-import { useLayoutEffect, useRef, useState, CSSProperties } from 'react';
+import { useLayoutEffect, useRef, useState } from 'react';
+import NextImage from 'next/image';
 import { gsap } from 'gsap';
 import { ArrowUpRight } from 'lucide-react';
 import './CardNav.css';
@@ -185,7 +186,15 @@ const CardNav = ({
 
           <div className="logo-container">
             <a href="/" aria-label="Home">
-              <img src={logo} alt={logoAlt} className="logo" />
+              <NextImage
+                src={logo}
+                alt={logoAlt}
+                width={160}
+                height={70}
+                className="logo"
+                priority
+                quality={100}
+              />
             </a>
           </div>
 
