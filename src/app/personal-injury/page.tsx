@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, ShieldAlert, FileText, ClipboardList, Stethoscope } from "lucide-react";
+import { ArrowRight, CheckCircle2, ShieldAlert, FileText, ClipboardList, Stethoscope, HardHat, Car, AlertCircle, Building, Building2 } from "lucide-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -13,26 +13,32 @@ export default function PersonalInjuryPage() {
     {
       title: "Workplace Accidents",
       desc: "Injuries caused by lack of training, faulty equipment, inadequate safety gear, or general employer negligence in offices, warehouses, or construction sites.",
+      icon: <HardHat className="w-6 h-6 text-brand-accent mb-4" />
     },
     {
       title: "Road Traffic Collisions",
       desc: "Collisions involving cars, motorbikes, bicycles, or pedestrians where another road user was negligent or breached the Highway Code.",
+      icon: <Car className="w-6 h-6 text-brand-accent mb-4" />
     },
     {
       title: "Slips, Trips & Falls",
       desc: "Accidents in public spaces, supermarkets, or private business premises caused by wet floors, uneven surfaces, loose cables, or neglected walkways.",
+      icon: <AlertCircle className="w-6 h-6 text-brand-accent mb-4" />
     },
     {
       title: "Industrial & Construction Sites",
       desc: "Serious injuries resulting from scaffolding collapses, falling objects, heavy machinery failures, or safety oversight on construction projects.",
+      icon: <Building className="w-6 h-6 text-brand-accent mb-4" />
     },
     {
       title: "Public Liability Incidents",
       desc: "Accidents occurring on council-maintained property, such as broken paving stones, or on commercial property due to inadequate maintenance.",
+      icon: <Building2 className="w-6 h-6 text-brand-accent mb-4" />
     },
     {
       title: "Other Negligent Incidents",
       desc: "Injuries occurring under unique circumstances where another party had a legal duty of care and failed to uphold it.",
+      icon: <ShieldAlert className="w-6 h-6 text-brand-accent mb-4" />
     },
   ];
 
@@ -61,9 +67,15 @@ export default function PersonalInjuryPage() {
   ];
 
   return (
-    <div className="bg-brand-bg">
+    <div 
+      className="relative min-h-screen bg-cover bg-center bg-fixed"
+      style={{ backgroundImage: 'url("/bg-injury.jpg")' }}
+    >
+      <div className="absolute inset-0 bg-[#FAF9F6]/70 backdrop-blur-[4px] z-0" />
+      
+      <div className="relative z-10">
       {/* 1. Page Hero */}
-      <section className="relative min-h-[60vh] flex items-center justify-center py-20 overflow-hidden bg-brand-bg border-b border-brand-border">
+      <section className="relative min-h-[60vh] flex items-center justify-center py-20 overflow-hidden border-b border-brand-border">
         <div className="absolute inset-0 z-0">
           <video
             autoPlay
@@ -122,7 +134,7 @@ export default function PersonalInjuryPage() {
       </section>
 
       {/* 3. Incident Grid */}
-      <section className="bg-brand-card py-24 md:py-32 border-b border-brand-border">
+      <section className="py-24 md:py-32 border-b border-brand-border">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="text-center max-w-2xl mx-auto mb-20">
             <span className="text-[10px] uppercase tracking-[0.25em] text-brand-accent font-semibold block mb-4">
@@ -140,9 +152,10 @@ export default function PersonalInjuryPage() {
             {commonAccidents.map((accident, idx) => (
               <div
                 key={idx}
-                className="bg-brand-bg p-8 border border-brand-border rounded-sm hover:border-brand-accent/30 transition-all duration-300 flex flex-col justify-between"
+                className="bg-brand-bg/80 backdrop-blur-md p-8 border border-brand-border rounded-sm hover:border-brand-accent/30 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
+                  {accident.icon}
                   <h3 className="font-serif text-lg md:text-xl font-bold text-brand-text mb-3">
                     {accident.title}
                   </h3>
@@ -189,7 +202,7 @@ export default function PersonalInjuryPage() {
               </div>
             </div>
 
-            <div className="bg-brand-card p-8 md:p-12 border border-brand-border rounded-sm">
+            <div className="bg-brand-card/80 backdrop-blur-md p-8 md:p-12 border border-brand-border rounded-sm">
               <span className="text-[10px] uppercase tracking-[0.25em] text-brand-accent font-semibold block mb-4">
                 Eligibility Rules
               </span>
@@ -219,13 +232,13 @@ export default function PersonalInjuryPage() {
       </section>
 
       {/* 5. FAQs Block */}
-      <section className="bg-brand-card py-24 md:py-32 border-b border-brand-border">
+      <section className="py-24 md:py-32 border-b border-brand-border">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="font-serif text-3xl font-bold tracking-tight text-center text-brand-text mb-12">
             Personal Injury FAQs
           </h2>
           <div className="space-y-6">
-            <div className="bg-brand-bg p-6 border border-brand-border rounded-sm">
+            <div className="bg-brand-bg/80 backdrop-blur-md p-6 border border-brand-border rounded-sm">
               <h3 className="font-serif text-base md:text-lg font-bold text-brand-text mb-2">
                 What is the time limit for making a claim?
               </h3>
@@ -233,7 +246,7 @@ export default function PersonalInjuryPage() {
                 In the UK, the standard limitation period is three years from the date of the accident or three years from the date you became aware of the injury. For children, the three-year limit begins on their 18th birthday.
               </p>
             </div>
-            <div className="bg-brand-bg p-6 border border-brand-border rounded-sm">
+            <div className="bg-brand-bg/80 backdrop-blur-md p-6 border border-brand-border rounded-sm">
               <h3 className="font-serif text-base md:text-lg font-bold text-brand-text mb-2">
                 Will making a claim affect my employment?
               </h3>
@@ -246,7 +259,7 @@ export default function PersonalInjuryPage() {
       </section>
 
       {/* 6. final call to action */}
-      <section className="bg-brand-bg py-24 text-center border-b border-brand-border">
+      <section className="py-24 text-center border-b border-brand-border">
         <div className="max-w-3xl mx-auto px-6">
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-brand-text mb-6">
             Assess your injury circumstances today.
@@ -263,6 +276,7 @@ export default function PersonalInjuryPage() {
           </Link>
         </div>
       </section>
+      </div>
     </div>
   );
 }
