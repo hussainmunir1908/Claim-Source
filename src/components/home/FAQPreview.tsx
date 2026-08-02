@@ -5,20 +5,28 @@ import Link from "next/link";
 import { Plus, Minus, ArrowRight, MessageCircle } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Stack from "../Stack";
+
+const STACK_IMAGES = [
+  "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=500&auto=format",
+  "https://images.unsplash.com/photo-1521791055366-0d553872952f?q=80&w=500&auto=format",
+  "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=500&auto=format",
+  "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?q=80&w=500&auto=format",
+];
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
 export default function FAQPreview() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const ctx = gsap.context(() => {
       if (!prefersReducedMotion) {
-        gsap.from(".faq-header-item", {
+        gsap.from(".faq-content-item", {
           scrollTrigger: {
             trigger: sectionRef.current,
             start: "top 85%",
@@ -27,18 +35,6 @@ export default function FAQPreview() {
           opacity: 0,
           y: 30,
           duration: 1.0,
-          stagger: 0.12,
-          ease: "power3.out",
-        });
-        gsap.from(".faq-item", {
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 78%",
-            toggleActions: "play none none reverse",
-          },
-          opacity: 0,
-          x: -20,
-          duration: 0.9,
           stagger: 0.12,
           ease: "power3.out",
         });
@@ -73,97 +69,102 @@ export default function FAQPreview() {
   return (
     <section
       ref={sectionRef}
-      className="py-24 md:py-36 border-b border-brand-border relative overflow-hidden"
+      className="py-24 md:py-36 border-b border-brand-border relative overflow-hidden bg-white"
     >
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-brand-bg via-brand-card/50 to-brand-bg" />
-      <div className="absolute right-0 top-0 w-[600px] h-[600px] rounded-full bg-brand-accent/4 blur-[150px] pointer-events-none" />
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
+          {/* Left Column: Stack card widget */}
+          <div className="faq-content-item relative hidden lg:flex flex-col gap-8">
+            {/* Stack widget */}
+            <div className="relative" style={{ height: 340 }}>
+              <Stack
+                randomRotation
+                sensitivity={80}
+                sendToBackOnClick={true}
+                cards={STACK_IMAGES.map((src, i) => (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    key={i}
+                    src={src}
+                    alt={`card-${i + 1}`}
+                    style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                  />
+                ))}
+                autoplay
+                autoplayDelay={2500}
+                pauseOnHover
+              />
+            </div>
+            <p className="text-[10px] uppercase tracking-[0.2em] text-brand-muted text-center">
+              Click or drag to browse ↗
+            </p>
 
-      <div className="max-w-5xl mx-auto px-6 relative z-10">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <span className="text-xs uppercase tracking-[0.25em] text-brand-accent font-semibold block mb-4 faq-header-item">
-            Frequently Asked Questions
-          </span>
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-brand-text faq-header-item">
-            Common Inquiries
-          </h2>
-          <p className="text-brand-muted mt-4 max-w-xl mx-auto text-sm md:text-base leading-relaxed faq-header-item">
-            Quick answers to the most common questions. Need more? Visit our full FAQ page.
-          </p>
-        </div>
-
-        {/* Accordion List */}
-        <div className="divide-y divide-brand-border border-y border-brand-border mb-14">
-          {previewFaqs.map((faq, index) => {
-            const isOpen = openIndex === index;
-            return (
-              <div
-                key={index}
-                className={`faq-item group transition-all duration-300 ${isOpen ? "bg-brand-accent-light/40" : "hover:bg-brand-card/50"}`}
+            {/* Info card below */}
+            <div className="bg-brand-card border border-brand-border rounded-xl p-7 flex flex-col gap-4">
+              <div className="w-10 h-10 bg-brand-accent rounded-full flex items-center justify-center text-white">
+                <MessageCircle className="w-5 h-5" />
+              </div>
+              <h3 className="font-serif text-2xl font-bold text-brand-text">Still have questions?</h3>
+              <p className="text-brand-muted text-sm leading-relaxed">Our support team is ready to help you navigate your claim process with expert guidance.</p>
+              <a
+                href="https://wa.me/447874391075"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-emerald-700 hover:text-emerald-900 transition-colors"
               >
-                <h3>
-                  <button
-                    onClick={() => toggleAccordion(index)}
-                    aria-expanded={isOpen}
-                    aria-controls={`faq-answer-${index}`}
-                    className="flex justify-between items-center w-full text-left px-6 py-6 focus:outline-none"
+                Ask on WhatsApp <ArrowRight className="w-3.5 h-3.5" />
+              </a>
+            </div>
+          </div>
+
+          {/* Right Column: FAQ List */}
+          <div className="faq-content-item">
+            <div className="mb-10">
+              <span className="text-xs uppercase tracking-[0.25em] text-brand-accent font-semibold block mb-4">
+                Help & Support
+              </span>
+              <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight text-brand-text">
+                Common Inquiries
+              </h2>
+            </div>
+
+            <div className="space-y-4">
+              {previewFaqs.map((faq, index) => {
+                const isOpen = openIndex === index;
+                return (
+                  <div
+                    key={index}
+                    className="border border-brand-border rounded-xl overflow-hidden transition-all duration-300"
                   >
-                    <span className={`font-serif text-lg md:text-xl font-bold transition-colors duration-300 pr-4 ${isOpen ? "text-brand-accent" : "text-brand-text group-hover:text-brand-accent"}`}>
-                      {faq.question}
-                    </span>
-                    <span
-                      className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-400 ${
-                        isOpen
-                          ? "bg-brand-accent text-white rotate-0 scale-100"
-                          : "bg-brand-card border border-brand-border text-brand-muted group-hover:border-brand-accent/40 group-hover:text-brand-accent"
+                    <button
+                      onClick={() => toggleAccordion(index)}
+                      className="flex justify-between items-center w-full text-left px-6 py-5 bg-white hover:bg-brand-accent-light/20 focus:outline-none"
+                    >
+                      <span className={`font-semibold transition-colors duration-300 ${isOpen ? "text-brand-accent" : "text-brand-text"}`}>
+                        {faq.question}
+                      </span>
+                      {isOpen ? (
+                        <Minus className="w-4 h-4 text-brand-accent" />
+                      ) : (
+                        <Plus className="w-4 h-4 text-brand-muted" />
+                      )}
+                    </button>
+                    <div
+                      className={`grid transition-all duration-300 ease-in-out ${
+                        isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
                       }`}
                     >
-                      {isOpen ? (
-                        <Minus className="w-3.5 h-3.5" />
-                      ) : (
-                        <Plus className="w-3.5 h-3.5" />
-                      )}
-                    </span>
-                  </button>
-                </h3>
-                <div
-                  id={`faq-answer-${index}`}
-                  role="region"
-                  aria-labelledby={`faq-question-${index}`}
-                  className={`grid transition-all duration-500 ease-in-out ${
-                    isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
-                  }`}
-                >
-                  <div className="overflow-hidden">
-                    <p className="text-sm md:text-base text-brand-muted leading-relaxed px-6 pb-6 pr-16">
-                      {faq.answer}
-                    </p>
+                      <div className="overflow-hidden">
+                        <p className="text-brand-muted text-sm leading-relaxed px-6 pb-5">
+                          {faq.answer}
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* CTA Row */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link
-            href="/faqs"
-            className="group inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold bg-brand-card border border-brand-border px-8 py-4 hover:bg-brand-accent hover:text-white hover:border-brand-accent transition-all duration-300 focus:outline-none rounded-sm premium-card"
-          >
-            View All FAQs
-            <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-          </Link>
-          <a
-            href="https://wa.me/447874391075"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold border border-emerald-300 text-emerald-800 bg-emerald-50 px-8 py-4 hover:bg-emerald-600 hover:text-white hover:border-emerald-600 transition-all duration-300 focus:outline-none rounded-sm"
-          >
-            <MessageCircle className="w-4 h-4 transition-transform duration-300 group-hover:scale-110" />
-            Ask on WhatsApp
-          </a>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
     </section>
