@@ -8,10 +8,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Stack from "../Stack";
 
 const STACK_IMAGES = [
-  "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=500&auto=format",
-  "https://images.unsplash.com/photo-1521791055366-0d553872952f?q=80&w=500&auto=format",
-  "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=500&auto=format",
-  "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?q=80&w=500&auto=format",
+  "/img1.jpeg",
+  "/img2.jpg",
+  "/bg-housing.jpg",
+  "/hero-injury.png",
 ];
 
 if (typeof window !== "undefined") {
