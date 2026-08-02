@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { ArrowLeft, ArrowRight, CheckCircle2, AlertCircle } from "lucide-react";
 import Link from "next/link";
 
@@ -113,6 +113,7 @@ export default function HousingClaimPage() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [refNumber, setRefNumber] = useState("");
   const [showTenancyWarning, setShowTenancyWarning] = useState(false);
+  const formTopRef = useRef<HTMLDivElement>(null);
 
   // Restore state from sessionStorage if present
   useEffect(() => {
@@ -125,6 +126,16 @@ export default function HousingClaimPage() {
       }
     }
   }, []);
+
+  // Scroll to top of form when step changes
+  useEffect(() => {
+    if (formTopRef.current) {
+      const yOffset = -100; // Account for fixed header
+      const element = formTopRef.current;
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  }, [step]);
 
   // Autosave form changes
   const updateFormData = (fields: Partial<FormData>) => {
@@ -346,7 +357,7 @@ export default function HousingClaimPage() {
   }
 
   return (
-    <div className="max-w-3xl mx-auto px-6 py-16 md:py-24 min-h-[85vh] flex flex-col justify-between bg-brand-bg" onKeyDown={handleKeyDown}>
+    <div ref={formTopRef} className="max-w-3xl mx-auto px-6 py-16 md:py-24 min-h-[85vh] flex flex-col justify-between bg-brand-bg" onKeyDown={handleKeyDown}>
       {/* Progress Bar Header */}
       <div className="mb-12 space-y-5">
         <div className="flex justify-between items-center text-xs uppercase tracking-widest text-brand-muted font-bold">
