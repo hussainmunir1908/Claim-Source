@@ -27,7 +27,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: {
     template: "%s | Claim Source",
-    default: "Claim Source | Premium UK Claims Eligibility Assessment",
+    default: "Claim Source",
   },
   description: "Assessment for Housing Disrepair and Personal Injury claims. Check your eligibility today via our premium, confidential online evaluation.",
   metadataBase: new URL("https://claimsource.co.uk"),
