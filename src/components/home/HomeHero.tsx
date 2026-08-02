@@ -6,31 +6,13 @@ import Image from "next/image";
 import { ArrowRight, ChevronDown, Shield, Star, Users } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Antigravity from "../Antigravity";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-const PARTICLES = [
-  { id: 0, size: 4.5, left: 12, delay: 2.1, duration: 15.3, opacity: 0.25 },
-  { id: 1, size: 2.8, left: 45, delay: 8.4, duration: 12.1, opacity: 0.42 },
-  { id: 2, size: 5.1, left: 78, delay: 1.2, duration: 18.5, opacity: 0.18 },
-  { id: 3, size: 3.2, left: 23, delay: 5.5, duration: 14.2, opacity: 0.35 },
-  { id: 4, size: 4.9, left: 89, delay: 9.1, duration: 20.4, opacity: 0.21 },
-  { id: 5, size: 2.1, left: 34, delay: 3.8, duration: 13.7, opacity: 0.51 },
-  { id: 6, size: 5.8, left: 67, delay: 7.2, duration: 17.8, opacity: 0.29 },
-  { id: 7, size: 3.5, left: 8, delay: 11.5, duration: 16.9, opacity: 0.45 },
-  { id: 8, size: 4.2, left: 56, delay: 4.3, duration: 19.1, opacity: 0.33 },
-  { id: 9, size: 2.5, left: 91, delay: 0.8, duration: 12.5, opacity: 0.48 },
-  { id: 10, size: 5.5, left: 19, delay: 6.7, duration: 21.2, opacity: 0.22 },
-  { id: 11, size: 3.8, left: 72, delay: 10.2, duration: 14.8, opacity: 0.39 },
-  { id: 12, size: 4.7, left: 41, delay: 2.9, duration: 18.3, opacity: 0.27 },
-  { id: 13, size: 2.9, left: 84, delay: 8.8, duration: 13.4, opacity: 0.41 },
-  { id: 14, size: 5.2, left: 5, delay: 5.1, duration: 16.6, opacity: 0.31 },
-  { id: 15, size: 3.1, left: 61, delay: 1.7, duration: 19.7, opacity: 0.47 },
-  { id: 16, size: 4.4, left: 28, delay: 7.9, duration: 15.9, opacity: 0.24 },
-  { id: 17, size: 2.3, left: 95, delay: 10.9, duration: 17.2, opacity: 0.52 },
-];
+
 
 export default function HomeHero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -148,39 +130,40 @@ export default function HomeHero() {
       className="relative min-h-[100svh] flex flex-col justify-center items-center overflow-hidden bg-brand-bg -mt-0"
       style={{ marginTop: 0, paddingTop: 0 }}
     >
-      {/* Background Cinematic Video */}
+      {/* Background Cinematic Image */}
       <div className="absolute inset-0 z-0 overflow-hidden" ref={parallaxLayerRef}>
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover object-center pointer-events-none scale-105"
-          >
-            <source src="/hero-home-video.mp4" type="video/mp4" />
-          </video>
+          <Image
+            src="/hero-home.jpg"
+            alt="Hero Background"
+            fill
+            priority
+            className="object-cover object-center pointer-events-none scale-105"
+            ref={imageRef}
+          />
       </div>
 
       {/* Dark gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/50 z-1" />
 
-      {/* Floating Particles */}
+      {/* Floating Particles (Antigravity) */}
       <div className="absolute inset-0 z-2 overflow-hidden pointer-events-none">
-        {PARTICLES.map((p) => (
-          <div
-            key={p.id}
-            className="particle bg-white rounded-full"
-            style={{
-              width: p.size,
-              height: p.size,
-              left: `${p.left}%`,
-              bottom: "-10px",
-              opacity: p.opacity,
-              animationDuration: `${p.duration}s`,
-              animationDelay: `${p.delay}s`,
-            }}
-          />
-        ))}
+        <Antigravity
+          count={300}
+          magnetRadius={6}
+          ringRadius={7}
+          waveSpeed={0.4}
+          waveAmplitude={1}
+          particleSize={1.5}
+          lerpSpeed={0.05}
+          color="#8AAF93"
+          autoAnimate
+          particleVariance={1}
+          rotationSpeed={0}
+          depthFactor={1}
+          pulseSpeed={3}
+          particleShape="capsule"
+          fieldStrength={10}
+        />
       </div>
 
       {/* Decorative orbs */}
