@@ -61,12 +61,29 @@ export default function Antigravity({
         x: Math.random() * width,
         y: Math.random() * height,
         size: Math.random() * particleSize + 0.2,
-        speedY: (Math.random() * -0.5 - 0.2) * (fieldStrength * 0.05), // Slower upward movement
+        speedY: (Math.random() * -0.5 - 0.2) * (fieldStrength * 0.05),
         speedX: (Math.random() - 0.5) * waveSpeed * 0.5,
         opacity: Math.random() * 0.4 + 0.1,
-        phase: Math.random() * Math.PI * 2, // For opacity pulsing
+        phase: Math.random() * Math.PI * 2,
+        originalX: 0,
       });
     }
+
+    let mouseX = -1000;
+    let mouseY = -1000;
+
+    const handleMouseMove = (e: MouseEvent) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    };
+
+    const handleMouseLeave = () => {
+      mouseX = -1000;
+      mouseY = -1000;
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mouseout", handleMouseLeave);
 
     let animationFrameId: number;
 
@@ -101,6 +118,21 @@ export default function Antigravity({
             p.y += p.speedY;
             p.x += Math.sin(p.y * 0.01 + p.phase) * p.speedX; // Wavy effect
 
+            // Magnetic mouse effect
+            const dx = mouseX - p.x;
+            const dy = mouseY - p.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            
+            // magnetRadius dictates interaction range
+            const interactionRadius = (magnetRadius || 6) * 30;
+            
+            if (dist < interactionRadius && dist > 0) {
+              const force = (interactionRadius - dist) / interactionRadius;
+              // Particles move with the cursor (attraction with a bit of swirl)
+              p.x += (dx / dist) * force * (lerpSpeed || 0.05) * 50;
+              p.y += (dy / dist) * force * (lerpSpeed || 0.05) * 50;
+            }
+
             // Reset if out of bounds
             if (p.y < -20) {
                 p.y = height + 20;
@@ -122,6 +154,8 @@ export default function Antigravity({
 
     return () => {
       window.removeEventListener("resize", handleResize);
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mouseout", handleMouseLeave);
       cancelAnimationFrame(animationFrameId);
     };
   }, [count, color, particleSize, particleShape, waveSpeed, fieldStrength, autoAnimate, pulseSpeed]);

@@ -137,7 +137,7 @@ export default function HomeHero() {
             alt="Hero Background"
             fill
             priority
-            className="object-cover object-center pointer-events-none scale-105"
+            className="object-cover object-center pointer-events-none scale-[1.15]"
             ref={imageRef}
           />
       </div>
@@ -257,15 +257,7 @@ export default function HomeHero() {
         </div>
       </div>
 
-      {/* Scroll Down Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 pointer-events-none">
-        <span className="text-[10px] uppercase tracking-[0.25em] text-white/60 font-semibold">
-          Scroll Down
-        </span>
-        <div className="w-5 h-8 rounded-full border border-white/30 flex items-start justify-center p-1">
-          <div className="w-1 h-2 rounded-full bg-white/70 animate-bounce" />
-        </div>
-      </div>
+
     </section>
   );
 }
