@@ -1,0 +1,144 @@
+.card-nav-container {
+  width: 100%;
+  position: relative;
+  z-index: 50;
+}
+
+.card-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.card-nav-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 0 20px;
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.hamburger-menu {
+  width: 24px;
+  height: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.hamburger-line {
+  width: 100%;
+  height: 2px;
+  background-color: currentColor;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hamburger-menu.open .hamburger-line:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.hamburger-menu.open .hamburger-line:nth-child(2) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+.card-nav-cta-button {
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.card-nav-cta-button:hover {
+  opacity: 0.8;
+}
+
+.card-nav-content {
+  display: flex;
+  gap: 16px;
+  padding: 20px;
+  justify-content: center;
+  max-width: 80rem;
+  margin: 0 auto;
+  flex-wrap: nowrap;
+}
+
+.nav-card {
+  flex: 1;
+  min-width: 250px;
+  padding: 32px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.nav-card-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  font-weight: 700;
+  opacity: 0.6;
+}
+
+.nav-card-links {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.nav-card-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.nav-card-link:hover {
+  opacity: 0.8;
+  transform: translateX(4px);
+}
+
+.nav-card-link-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .card-nav-content {
+    flex-direction: column;
+    padding: 16px;
+  }
+  
+  .card-nav-cta-button {
+    display: none;
+  }
+}

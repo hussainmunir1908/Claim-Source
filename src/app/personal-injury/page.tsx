@@ -75,7 +75,7 @@ export default function PersonalInjuryPage() {
       
       <div className="relative z-10">
       {/* 1. Page Hero */}
-      <section className="relative min-h-[60vh] flex items-center justify-center py-20 overflow-hidden border-b border-brand-border">
+      <section className="relative min-h-[60vh] flex items-center justify-center py-20 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <video
             autoPlay
@@ -110,7 +110,7 @@ export default function PersonalInjuryPage() {
       </section>
 
       {/* 2. Editorial Definition Block */}
-      <section className="py-24 md:py-32 border-b border-brand-border">
+      <section className="py-24 md:py-32">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             <div className="lg:col-span-5">
@@ -134,7 +134,7 @@ export default function PersonalInjuryPage() {
       </section>
 
       {/* 3. Incident Grid */}
-      <section className="py-24 md:py-32 border-b border-brand-border">
+      <section className="py-24 md:py-32">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="text-center max-w-2xl mx-auto mb-20">
             <span className="text-[10px] uppercase tracking-[0.25em] text-brand-accent font-semibold block mb-4">
@@ -170,7 +170,7 @@ export default function PersonalInjuryPage() {
       </section>
 
       {/* 4. Evidence Requirements */}
-      <section className="py-24 md:py-32 border-b border-brand-border">
+      <section className="py-24 md:py-32">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
@@ -232,7 +232,7 @@ export default function PersonalInjuryPage() {
       </section>
 
       {/* 5. FAQs Block */}
-      <section className="py-24 md:py-32 border-b border-brand-border">
+      <section className="py-24 md:py-32">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="font-serif text-3xl font-bold tracking-tight text-center text-brand-text mb-12">
             Personal Injury FAQs
@@ -259,7 +259,7 @@ export default function PersonalInjuryPage() {
       </section>
 
       {/* 6. final call to action */}
-      <section className="py-24 text-center border-b border-brand-border">
+      <section className="py-24 text-center">
         <div className="max-w-3xl mx-auto px-6">
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-brand-text mb-6">
             Assess your injury circumstances today.
