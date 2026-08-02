@@ -54,14 +54,20 @@ export async function POST(req: Request) {
           method: "POST",
           headers,
           body: JSON.stringify(data),
-          signal: AbortSignal.timeout(8000), // Timeout after 8 seconds
+          // Removed strict 8s timeout to allow Apps Script to wake up
         });
 
         if (syncRes.ok) {
-          const responseData = await syncRes.json();
+          const responseText = await syncRes.text();
           sheetsSyncSuccess = true;
-          if (responseData.leadId) {
-             finalLeadId = responseData.leadId;
+          try {
+            const responseData = JSON.parse(responseText);
+            if (responseData.leadId) {
+               finalLeadId = responseData.leadId;
+            }
+            console.log(`Lead ${finalLeadId} synchronized successfully. Raw:`, responseText);
+          } catch(e) {
+            console.log(`Lead synchronized but failed to parse JSON. Raw text:`, responseText);
           }
           console.log(`Lead ${finalLeadId} synchronized successfully with Google Sheets Webhook.`);
         } else {
