@@ -28,7 +28,7 @@ export default function HomeHero() {
       // Setup initial states
       gsap.set(".animate-word", { y: "110%", opacity: 0 });
       gsap.set(contentRef.current, { y: 40, opacity: 0 });
-      gsap.set(imageRef.current, { scale: 1.18, filter: "brightness(0.6)" });
+      gsap.set(imageRef.current, { scale: 1.18, filter: "brightness(0.95)" });
       gsap.set(".hero-badge", { opacity: 0, y: -20, scale: 0.9 });
       gsap.set(".stat-chip", { opacity: 0, y: 20, scale: 0.9 });
 
@@ -37,7 +37,7 @@ export default function HomeHero() {
 
       tl.to(imageRef.current, {
         scale: 1,
-        filter: "brightness(0.45)",
+        filter: "brightness(1)",
         duration: 2.5,
         ease: "power2.out",
       }, "0")
@@ -77,9 +77,9 @@ export default function HomeHero() {
             end: "bottom top",
             scrub: 1,
           },
-          scale: 1.3,
+          scale: 1.1,
           yPercent: 20,
-          filter: "brightness(0.25)",
+          filter: "brightness(0.8)",
           ease: "none",
         });
 
@@ -127,7 +127,7 @@ export default function HomeHero() {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-[100svh] flex flex-col justify-center items-center overflow-hidden bg-brand-bg"
+      className="relative min-h-[100svh] flex flex-col justify-end items-center overflow-hidden bg-brand-bg"
       style={{ marginTop: 0, paddingTop: 0 }}
     >
       {/* Background Cinematic Image */}
@@ -138,14 +138,14 @@ export default function HomeHero() {
             fill
             priority
             sizes="100vw"
-            quality={90}
-            className="object-cover object-center pointer-events-none scale-[1.15]"
+            quality={100}
+            className="object-cover object-center pointer-events-none"
             ref={imageRef}
           />
       </div>
 
-      {/* Dark gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/50 z-1" />
+      {/* Minimal dark overlay — just enough for text contrast at the bottom */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent z-1" />
 
       {/* Floating Particles (Antigravity) */}
       <div className="absolute inset-0 z-2 overflow-hidden pointer-events-none">
@@ -175,11 +175,11 @@ export default function HomeHero() {
 
 
       {/* Content Container */}
-      <div className="hero-content-parallax relative z-20 w-full max-w-5xl mx-auto text-center flex flex-col items-center px-5 sm:px-8 md:px-12 pt-28 pb-16 md:pt-36 md:pb-24">
+      <div className="hero-content-parallax relative z-20 w-full max-w-5xl mx-auto text-center flex flex-col items-center px-5 sm:px-8 md:px-12 pb-16 md:pb-24 pt-8">
 
         <h1
           ref={titleRef}
-          className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tight text-white leading-[1.05] max-w-5xl select-none w-full"
+          className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tight text-white leading-[1.05] max-w-5xl select-none w-full drop-shadow-2xl"
         >
           <span className="block overflow-hidden relative pb-2">
             <span className="animate-word inline-block">Your circumstances</span>
