@@ -133,14 +133,15 @@ export default function HomeHero() {
       {/* Background Cinematic Image */}
       <div className="absolute inset-0 z-0 overflow-hidden" ref={parallaxLayerRef}>
           <Image
-            src="/hero-home.jpg"
+            src="/hero-home.png"
             alt="UK Courtroom Hero Background"
             fill
             priority
+            unoptimized
             sizes="100vw"
-            quality={100}
-            className="object-cover object-center pointer-events-none"
+            className="object-cover object-top pointer-events-none"
             ref={imageRef}
+            style={{ imageRendering: 'auto', WebkitFontSmoothing: 'antialiased' }}
           />
       </div>
 
