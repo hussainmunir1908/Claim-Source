@@ -161,14 +161,6 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#6a6966]">
           <p>&copy; {currentYear} Claim Source. All rights reserved.</p>
-          <div className="flex items-center gap-4">
-            <span className="px-3 py-1 border border-white/10 text-[10px] uppercase tracking-widest font-semibold text-white/30 rounded-full">
-              UK Campaign Compliant
-            </span>
-            <span className="px-3 py-1 border border-white/10 text-[10px] uppercase tracking-widest font-semibold text-white/30 rounded-full">
-              GDPR
-            </span>
-          </div>
         </div>
       </div>
     </footer>
