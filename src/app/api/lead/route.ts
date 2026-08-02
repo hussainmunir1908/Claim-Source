@@ -60,16 +60,22 @@ export async function POST(req: Request) {
         if (syncRes.ok) {
           const responseText = await syncRes.text();
           sheetsSyncSuccess = true;
+          let sheetError = "";
           try {
             const responseData = JSON.parse(responseText);
             if (responseData.leadId) {
                finalLeadId = responseData.leadId;
+            } else if (responseData.error) {
+               sheetError = responseData.error;
             }
-            console.log(`Lead ${finalLeadId} synchronized successfully. Raw:`, responseText);
           } catch(e) {
-            console.log(`Lead synchronized but failed to parse JSON. Raw text:`, responseText);
+            sheetError = "Failed to parse JSON. Raw text: " + responseText;
           }
-          console.log(`Lead ${finalLeadId} synchronized successfully with Google Sheets Webhook.`);
+          if (sheetError) {
+             console.error("Sheet Error:", sheetError);
+             // We return it in message so frontend can display it as a fallback ID for debugging
+             finalLeadId = "ERR: " + sheetError.substring(0, 50);
+          }
         } else {
           console.error(`Google Sheets Webhook responded with status: ${syncRes.status}`);
         }
