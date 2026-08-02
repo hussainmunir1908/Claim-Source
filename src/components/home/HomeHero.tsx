@@ -127,16 +127,18 @@ export default function HomeHero() {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-[100svh] flex flex-col justify-center items-center overflow-hidden bg-brand-bg -mt-0"
+      className="relative min-h-[100svh] flex flex-col justify-center items-center overflow-hidden bg-brand-bg"
       style={{ marginTop: 0, paddingTop: 0 }}
     >
       {/* Background Cinematic Image */}
       <div className="absolute inset-0 z-0 overflow-hidden" ref={parallaxLayerRef}>
           <Image
             src="/hero-home.jpg"
-            alt="Hero Background"
+            alt="UK Courtroom Hero Background"
             fill
             priority
+            sizes="100vw"
+            quality={90}
             className="object-cover object-center pointer-events-none scale-[1.15]"
             ref={imageRef}
           />
@@ -173,12 +175,11 @@ export default function HomeHero() {
 
 
       {/* Content Container */}
-      <div className="hero-content-parallax relative z-20 max-w-5xl mx-auto text-center flex flex-col items-center px-6 py-28 md:py-36">
+      <div className="hero-content-parallax relative z-20 w-full max-w-5xl mx-auto text-center flex flex-col items-center px-5 sm:px-8 md:px-12 pt-28 pb-16 md:pt-36 md:pb-24">
 
-        {/* Large Editorial Headline */}
         <h1
           ref={titleRef}
-          className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tight text-white leading-[1.05] max-w-5xl select-none"
+          className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tight text-white leading-[1.05] max-w-5xl select-none w-full"
         >
           <span className="block overflow-hidden relative pb-2">
             <span className="animate-word inline-block">Your circumstances</span>
@@ -199,7 +200,7 @@ export default function HomeHero() {
             Claim Source helps individuals check eligibility for Housing Disrepair and Personal Injury campaigns, connecting qualifying enquiries with verified UK law specialists.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto mb-12">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto mb-10 sm:mb-12">
             <Link
               href="#campaign-selector"
               className="group relative w-full sm:w-auto overflow-hidden inline-flex items-center justify-center bg-white text-brand-text px-10 py-4 text-sm uppercase tracking-[0.18em] font-bold transition-all duration-300 hover:bg-brand-accent hover:text-white focus:outline-none shadow-xl rounded-sm cursor-pointer glow-accent-hover"
@@ -219,7 +220,7 @@ export default function HomeHero() {
           </div>
 
           {/* Stats Strip */}
-          <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-10">
+          <div className="flex flex-row flex-wrap items-center justify-center gap-4 sm:gap-8">
             <div className="stat-chip flex items-center gap-2.5 text-white/90">
               <div className="w-8 h-8 rounded-full bg-white/10 border border-white/20 flex items-center justify-center">
                 <Users className="w-4 h-4" />

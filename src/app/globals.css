@@ -474,3 +474,62 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .animated-underline:hover::after {
   width: 100%;
 }
+
+/* ==========================================
+   GLOBAL MOBILE RESPONSIVENESS
+   ========================================== */
+
+/* Prevent any element from causing horizontal overflow */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Ensure images never overflow their containers */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Next.js Image wrapper always fills container */
+[data-nimg] {
+  max-width: 100%;
+}
+
+/* Fix grid/flex layouts overflowing on mobile */
+@media (max-width: 640px) {
+  .max-w-7xl {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  /* Prevent oversized text on mobile */
+  .font-serif {
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  /* Ensure full-screen bg images cover properly on mobile */
+  section[style*="position: relative"],
+  .relative.overflow-hidden > img,
+  .relative.overflow-hidden > [data-nimg] {
+    min-height: 100%;
+  }
+}
+
+/* ==========================================
+   HIGH-DPI / RETINA SHARPNESS
+   ========================================== */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  img {
+    image-rendering: -webkit-optimize-contrast;
+  }
+}
+
+/* Prevent the fixed nav from covering hero content on shorter phones */
+@media (max-height: 600px) and (max-width: 768px) {
+  .hero-content-parallax {
+    padding-top: 80px !important;
+    padding-bottom: 40px !important;
+  }
+}
+

@@ -24,8 +24,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 60px;
-  padding: 0 20px;
+  height: 72px;
+  padding: 0 24px;
   max-width: 80rem;
   margin: 0 auto;
 }
@@ -60,9 +60,12 @@
 }
 
 .logo {
-  height: 40px;
+  height: 60px;
   width: auto;
+  max-width: 180px;
   object-fit: contain;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
 
 .card-nav-cta-button {
@@ -138,12 +141,28 @@
 }
 
 @media (max-width: 768px) {
+  .card-nav-top {
+    height: 64px;
+    padding: 0 16px;
+  }
+  
+  .logo {
+    height: 50px;
+  }
+
   .card-nav-content {
     flex-direction: column;
     padding: 16px;
   }
   
   .card-nav-cta-button {
-    display: none;
+    font-size: 9px;
+    padding: 8px 12px;
+    letter-spacing: 0.1em;
+  }
+
+  .nav-card {
+    min-width: unset;
+    padding: 20px;
   }
 }
