@@ -28,6 +28,7 @@ export default function Antigravity({
   waveSpeed = 0.4,
   fieldStrength = 10,
   autoAnimate = true,
+  pulseSpeed = 3,
 }: AntigravityProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -123,7 +124,7 @@ export default function Antigravity({
       window.removeEventListener("resize", handleResize);
       cancelAnimationFrame(animationFrameId);
     };
-  }, [count, color, particleSize, particleShape, waveSpeed, fieldStrength, autoAnimate]);
+  }, [count, color, particleSize, particleShape, waveSpeed, fieldStrength, autoAnimate, pulseSpeed]);
 
   return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none z-0" />;
 }
