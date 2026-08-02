@@ -90,10 +90,25 @@ export default function CampaignSelector() {
     <section
       ref={sectionRef}
       id="campaign-selector"
-      className="bg-brand-bg py-24 md:py-36 border-b border-brand-border relative overflow-hidden"
+      className="relative py-24 md:py-36 border-b border-brand-border overflow-hidden"
     >
+      {/* Full background image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/bg-campaign.jpg"
+          alt="UK Building Background"
+          fill
+          sizes="100vw"
+          quality={90}
+          className="object-cover object-center"
+          priority
+        />
+        {/* Dark frosted overlay so text is legible */}
+        <div className="absolute inset-0 bg-gradient-to-b from-brand-bg/90 via-brand-bg/80 to-brand-bg/90" />
+      </div>
+
       {/* Subtle background orb */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-brand-accent/4 blur-[150px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-brand-accent/4 blur-[150px] pointer-events-none z-1" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         {/* Header */}
