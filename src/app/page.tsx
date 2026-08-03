@@ -130,7 +130,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-16 items-center">
             <div className="lg:col-span-7 space-y-4">
               <span className="text-xs md:text-sm uppercase tracking-[0.25em] text-brand-accent font-semibold block pitch-fade-up">
-                Assessing Eligibility
+                UK Claims Platform
               </span>
               <p className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] text-brand-text leading-[1.15] pitch-fade-up">
                 Helping individuals in getting the compensation they deserve.
