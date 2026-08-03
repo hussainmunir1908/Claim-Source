@@ -234,7 +234,7 @@ export default function HomeHero() {
                 <Users className="w-4 h-4" />
               </div>
               <div className="text-left">
-                <div className="font-serif text-lg font-bold leading-none">286</div>
+                <div className="font-serif text-lg font-bold leading-none">700</div>
                 <div className="text-[10px] uppercase tracking-widest text-white/60 mt-0.5">Claims Checked</div>
               </div>
             </div>

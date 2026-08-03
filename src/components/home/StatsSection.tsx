@@ -28,7 +28,7 @@ function useCounter(target: number, duration: number = 2, started: boolean = fal
 }
 
 const stats = [
-  { label: "Claims Checked", value: 286, suffix: "", prefix: "" },
+  { label: "Claims Checked", value: 700, suffix: "", prefix: "" },
   { label: "Satisfaction Rate", value: 100, suffix: "%", prefix: "" },
   { label: "Years Experience", value: 14, suffix: "", prefix: "" },
   { 
@@ -109,7 +109,7 @@ export default function StatsSection() {
             By The Numbers
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-white font-bold mt-3 leading-tight">
-            Over 500 happy clients
+            Hundreds of happy customers
           </h2>
         </div>
 

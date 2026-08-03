@@ -33,7 +33,7 @@ export default function AboutPage() {
   const [counterStarted, setCounterStarted] = useState(false);
   const statsSectionRef = useRef<HTMLDivElement>(null);
 
-  const c1 = useCounter(286, 2.2, counterStarted);
+  const c1 = useCounter(700, 2.2, counterStarted);
   const c2 = useCounter(14, 1.5, counterStarted);
   const c3 = useCounter(10, 2.0, counterStarted);
 
