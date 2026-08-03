@@ -139,7 +139,7 @@ export default function Home() {
               <div className="pt-4 space-y-3 pitch-fade-up">
                 {[
                   "Free, confidential initial evaluation",
-                  "Connected to verified UK law specialists",
+                  "Connected to SRA and FCA regulated specialist law firms",
                   "No Win, No Fee arrangements available",
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-3 text-sm text-brand-muted">
