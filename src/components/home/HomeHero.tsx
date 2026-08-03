@@ -151,8 +151,9 @@ export default function HomeHero() {
           />
       </div>
 
-      {/* Minimal dark overlay — just enough for text contrast at the bottom */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent z-1" />
+      {/* Premium dark overlay to ensure excellent text contrast */}
+      <div className="absolute inset-0 bg-black/35 z-1" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/15 z-1" />
 
       {/* Floating Particles (Antigravity) */}
       <div className="absolute inset-0 z-2 overflow-hidden pointer-events-none">
@@ -195,7 +196,7 @@ export default function HomeHero() {
             <span className="animate-word inline-block">may be worth</span>
           </span>
           <span className="block overflow-hidden relative pb-2">
-            <span className="animate-word inline-block shimmer-text font-light italic">
+            <span className="animate-word inline-block shimmer-text font-bold italic">
               more than you think.
             </span>
           </span>
@@ -203,7 +204,7 @@ export default function HomeHero() {
 
         {/* Subtitle / CTA actions */}
         <div ref={contentRef} className="mt-10 flex flex-col items-center max-w-3xl w-full">
-          <p className="text-white/85 text-base sm:text-lg md:text-xl font-light leading-relaxed mb-10 text-balance max-w-2xl">
+          <p className="text-white text-base sm:text-lg md:text-xl font-normal leading-relaxed mb-10 text-balance max-w-2xl drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)]">
             Claim Source stands as your direct line to justice — a fast, reliable service built to help tenants and injured individuals get the compensation they’re owed without stress.
           </p>
 
