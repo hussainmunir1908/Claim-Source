@@ -26,7 +26,7 @@ export default function HowItWorksPage() {
       num: "03",
       icon: <MessageSquareCheck className="w-6 h-6 text-brand-accent" />,
       title: "Review & Solicitor Contact",
-      desc: "If your circumstances meet the initial campaign thresholds, your details are securely passed to a verified legal professional. They will contact you for a friendly, no-obligation conversation to discuss your options.",
+      desc: "If your circumstances meet the initial criteria thresholds, your details are securely passed to a verified legal professional. They will contact you for a friendly, no-obligation conversation to discuss your options.",
     },
   ];
 
@@ -162,7 +162,7 @@ export default function HowItWorksPage() {
             Answer our questions to evaluate your housing disrepair or personal injury circumstances.
           </p>
           <Link
-            href="/#campaign-selector"
+            href="/#claim-selector"
             className="group relative overflow-hidden inline-flex items-center justify-center bg-brand-accent text-brand-bg px-8 py-4 text-xs uppercase tracking-widest font-semibold transition-all duration-300 hover:bg-brand-accent-hover focus:outline-none"
           >
             Start Qualification Now

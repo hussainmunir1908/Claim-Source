@@ -60,7 +60,7 @@ export default function CookieBanner() {
         <div className="space-y-4">
           <h4 className="font-serif text-lg font-bold text-brand-text">Cookie Settings</h4>
           <p className="text-xs text-brand-muted leading-relaxed">
-            We use cookies to enhance your experience, analyze site usage, and support our campaign attribution. You can choose to enable or disable optional cookies.
+            We use cookies to enhance your experience, analyze site usage, and support our marketing attribution. You can choose to enable or disable optional cookies.
           </p>
           <div className="flex flex-col sm:flex-row gap-2 pt-2">
             <button
@@ -116,7 +116,7 @@ export default function CookieBanner() {
             <div className="flex items-center justify-between border-b border-brand-border pb-2">
               <div>
                 <span className="text-xs font-semibold text-brand-text block">Marketing Cookies</span>
-                <span className="text-[10px] text-brand-muted">Used for attribution of campaign leads.</span>
+                <span className="text-[10px] text-brand-muted">Used for attribution of leads.</span>
               </div>
               <input
                 type="checkbox"

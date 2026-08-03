@@ -86,7 +86,7 @@ export default function ContactPage() {
                 Eligibility Checks
               </h4>
               <p className="text-xs md:text-sm text-brand-muted leading-relaxed mb-4">
-                Please do not submit claim details via this general contact form. Use our specific campaign qualification forms for rapid, secure processing.
+                Please do not submit claim details via this general contact form. Use our specific claim qualification forms for rapid, secure processing.
               </p>
             </div>
           </div>

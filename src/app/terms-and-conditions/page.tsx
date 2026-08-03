@@ -62,7 +62,7 @@ export default function TermsPage() {
           <section className="space-y-4">
             <h2 className="font-serif text-2xl font-bold text-brand-text">4. Accuracy of Information</h2>
             <p>
-              You agree to provide true, accurate, current, and complete information when submitting enquiries. Providing fraudulent or misleading details may result in your assessment being cancelled and details flagged for abuse.
+              You agree to provide true, accurate, current, and complete information when submitting enquiries. Providing fraudulent or misleading details may result in your enquiry being cancelled and details flagged for abuse.
             </p>
           </section>
 
@@ -72,7 +72,7 @@ export default function TermsPage() {
               To the maximum extent permitted by applicable law, we exclude all representations, warranties, and conditions relating to our website and the use of this website. We will not be liable for any loss or damage of any nature arising from your use of, or inability to use, our enquiry system.
             </p>
             <p>
-              We do not guarantee that the introductions we make will result in compensation recovery or successful repair enforcement. The decision to accept, assess, or pursue a claim rests entirely with the introduced legal partner and is subject to their own assessment of your circumstances.
+              We do not guarantee that the introductions we make will result in compensation recovery or successful repair enforcement. The decision to accept, assess, or pursue a claim rests entirely with the introduced legal partner and is subject to their own evaluation of your circumstances.
             </p>
           </section>
 

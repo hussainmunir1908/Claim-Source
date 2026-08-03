@@ -93,7 +93,7 @@ export default function Footer() {
           {/* Navigation Col */}
           <div className="lg:col-span-3">
             <h4 className="text-xs uppercase tracking-[0.2em] font-bold text-white mb-6 pb-3 border-b border-white/8">
-              Campaigns & Info
+              Claim Types & Info
             </h4>
             <ul className="space-y-3">
               {mainLinks.map((link) => (
@@ -133,7 +133,7 @@ export default function Footer() {
             <div className="p-5 border border-white/8 bg-white/3 rounded-sm">
               <p className="text-xs text-white/50 uppercase tracking-widest font-semibold mb-3">Ready to check eligibility?</p>
               <Link
-                href="/#campaign-selector"
+                href="/#claim-selector"
                 className="group inline-flex items-center gap-2 bg-brand-accent text-white text-xs uppercase tracking-widest font-bold px-5 py-3 rounded-sm hover:bg-brand-accent-hover transition-colors duration-300 focus:outline-none w-full justify-center"
               >
                 Check Eligibility

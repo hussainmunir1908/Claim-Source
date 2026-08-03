@@ -50,8 +50,8 @@ export default function PersonalInjuryPage() {
     },
     {
       icon: <Stethoscope className="w-5 h-5" />,
-      title: "Medical Assessment",
-      desc: "Records from GP visits, A&E admissions, ambulance call-outs, or ongoing rehabilitation assessments that formally document your physical injuries.",
+      title: "Medical Records",
+      desc: "Records from GP visits, A&E admissions, ambulance call-outs, or ongoing rehabilitation reviews that formally document your physical injuries.",
     },
     {
       icon: <FileText className="w-5 h-5" />,
@@ -93,7 +93,7 @@ export default function PersonalInjuryPage() {
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center text-white flex flex-col items-center">
           <span className="text-[10px] uppercase tracking-[0.25em] text-brand-accent-light font-semibold bg-white/10 backdrop-blur-md px-3 py-1 rounded-full mb-6">
-            UK Campaign
+            UK Claims
           </span>
           <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-6 max-w-3xl leading-tight">
             Personal Injury Claims

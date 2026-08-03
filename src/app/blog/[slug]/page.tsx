@@ -147,10 +147,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           <h3 className="font-serif text-2xl md:text-3xl font-bold mb-3">Think you have a claim?</h3>
           <p className="text-white/70 text-sm mb-6">Take our free two-minute eligibility check.</p>
           <Link
-            href="/#campaign-selector"
+            href="/#claim-selector"
             className="inline-flex items-center gap-2 bg-white text-brand-accent text-xs uppercase tracking-widest font-bold px-8 py-3.5 rounded-sm hover:bg-brand-accent-light transition-colors"
           >
-            Start Free Assessment
+            Check Eligibility
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

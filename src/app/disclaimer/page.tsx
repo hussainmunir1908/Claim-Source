@@ -30,7 +30,7 @@ export default function DisclaimerPage() {
               </p>
             </div>
             <p>
-              Claim Source operates strictly as an enquiry processing, marketing, and initial qualification service. The purpose of this website is to gather information about your circumstances, perform automated threshold assessments, and facilitate introductions to verified claims management companies (CMCs) or law firms regulated in the United Kingdom.
+              Claim Source operates strictly as an enquiry processing, marketing, and initial qualification service. The purpose of this website is to gather information about your circumstances, perform automated threshold reviews, and facilitate introductions to verified claims management companies (CMCs) or law firms regulated in the United Kingdom.
             </p>
             <p>
               Claim Source does not provide legal representation or legal advice. We are not regulated by the Solicitors Regulation Authority (SRA) or the Financial Conduct Authority (FCA).
@@ -38,12 +38,12 @@ export default function DisclaimerPage() {
           </section>
 
           <section className="space-y-4">
-            <h2 className="font-serif text-2xl font-bold text-brand-text">2. Introductions & Legal Partner Assessments</h2>
+            <h2 className="font-serif text-2xl font-bold text-brand-text">2. Introductions & Legal Partner Reviews</h2>
             <p>
               Submitting an enquiry via our forms does not guarantee that you will be accepted by a solicitor, that they will agree to act on your behalf, or that you are eligible to recover compensation.
             </p>
             <p>
-              Any legal professional we introduce to you will conduct their own detailed assessment of your circumstances, including viability checks, conflict checks, and merit reviews, before offering representation.
+              Any legal professional we introduce to you will conduct their own detailed evaluation of your circumstances, including viability checks, conflict checks, and merit reviews, before offering representation.
             </p>
           </section>
 

@@ -210,7 +210,7 @@ export default function HomeHero() {
 
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto mb-10 sm:mb-12">
             <Link
-              href="#campaign-selector"
+              href="#claim-selector"
               className="group relative w-full sm:w-auto overflow-hidden inline-flex items-center justify-center bg-white text-brand-text px-10 py-4 text-sm uppercase tracking-[0.18em] font-bold transition-all duration-300 hover:bg-brand-accent hover:text-white focus:outline-none shadow-xl rounded-sm cursor-pointer glow-accent-hover"
             >
               <span className="absolute inset-0 bg-white/20 -translate-x-full skew-x-[-20deg] group-hover:translate-x-full transition-transform duration-500 ease-out" />

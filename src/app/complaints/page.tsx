@@ -25,7 +25,7 @@ export default function ComplaintsPage() {
           <section className="space-y-4">
             <h2 className="font-serif text-2xl font-bold text-brand-text">Our Commitment to Quality</h2>
             <p>
-              At Claim Source, we aim to provide a high-quality, professional, and transparent service to all our users. However, if you feel that we have fallen short of your expectations, we would like to hear from you. We treat all complaints with seriousness and utilize feedback to refine our assessment procedures.
+              At Claim Source, we aim to provide a high-quality, professional, and transparent service to all our users. However, if you feel that we have fallen short of your expectations, we would like to hear from you. We treat all complaints with seriousness and utilize feedback to refine our qualification procedures.
             </p>
           </section>
 

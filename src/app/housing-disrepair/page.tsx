@@ -74,7 +74,7 @@ export default function HousingDisrepairPage() {
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center text-white flex flex-col items-center">
           <span className="text-[10px] uppercase tracking-[0.25em] text-brand-accent-light font-semibold bg-white/10 backdrop-blur-md px-3 py-1 rounded-full mb-6">
-            UK Campaign
+            UK Claims
           </span>
           <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-6 max-w-3xl leading-tight">
             Housing Disrepair Claims
@@ -164,7 +164,7 @@ export default function HousingDisrepairPage() {
                 Why documenting disrepair matters.
               </h2>
               <p className="text-sm text-brand-muted leading-relaxed mb-6">
-                To hold a landlord responsible, you must be able to demonstrate that they were made aware of the issues and did not resolve them. Collecting evidence is a critical component of any assessment.
+                To hold a landlord responsible, you must be able to demonstrate that they were made aware of the issues and did not resolve them. Collecting evidence is a critical component of any claim.
               </p>
               <div className="space-y-4">
                 <div className="flex gap-4 items-start">
@@ -258,7 +258,7 @@ export default function HousingDisrepairPage() {
                 What compensation may I be entitled to?
               </h3>
               <p className="text-xs md:text-sm text-brand-muted leading-relaxed">
-                Compensation amounts vary depending on the severity of the disrepair, length of tenancy during the disrepair, impact on health, and damage to personal belongings. Assessment is required to determine potential paths.
+                Compensation amounts vary depending on the severity of the disrepair, length of tenancy during the disrepair, impact on health, and damage to personal belongings. Evaluation is required to determine potential paths.
               </p>
             </div>
           </div>

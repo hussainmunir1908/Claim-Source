@@ -179,7 +179,7 @@ export default function Home() {
       {/* 4. Stats Section */}
       <StatsSection />
 
-      {/* 5. Campaign Selector */}
+      {/* 5. Claim Selector */}
       <CampaignSelector />
 
       {/* 6. Trust and Philosophy */}

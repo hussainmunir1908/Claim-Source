@@ -43,10 +43,10 @@ export default function PrivacyPolicyPage() {
                 <span className="font-semibold text-brand-text">Contact Data:</span> Email address, mobile phone number, postal address, postcode.
               </li>
               <li>
-                <span className="font-semibold text-brand-text">Campaign & Circumstances Data:</span> Details regarding your housing defects, landlord notification logs, dates of accidents, types of injuries, treatment providers, and evidence availability.
+                <span className="font-semibold text-brand-text">Claim Details & Circumstances Data:</span> Details regarding your housing defects, landlord notification logs, dates of accidents, types of injuries, treatment providers, and evidence availability.
               </li>
               <li>
-                <span className="font-semibold text-brand-text">Attribution & Technical Data:</span> IP address, browser type, device type, operating system, landing pages, referrers, and campaign tracking parameters (UTM tags, Google Click IDs).
+                <span className="font-semibold text-brand-text">Attribution & Technical Data:</span> IP address, browser type, device type, operating system, landing pages, referrers, and marketing tracking parameters (UTM tags, Google Click IDs).
               </li>
             </ul>
           </section>
@@ -63,7 +63,7 @@ export default function PrivacyPolicyPage() {
               </thead>
               <tbody>
                 <tr>
-                  <td className="p-4 border border-brand-border">To assess your enquiry and qualify your eligibility for campaigns</td>
+                  <td className="p-4 border border-brand-border">To evaluate your enquiry and qualify your eligibility for claims matching</td>
                   <td className="p-4 border border-brand-border text-brand-accent font-semibold">Consent (explicitly given upon form submission)</td>
                 </tr>
                 <tr>
@@ -71,7 +71,7 @@ export default function PrivacyPolicyPage() {
                   <td className="p-4 border border-brand-border text-brand-accent font-semibold">Consent / Contractual steps at your request</td>
                 </tr>
                 <tr>
-                  <td className="p-4 border border-brand-border">To track campaigns and monitor marketing performance</td>
+                  <td className="p-4 border border-brand-border">To track marketing performance and monitor lead generation</td>
                   <td className="p-4 border border-brand-border text-brand-accent font-semibold">Legitimate Interests (optimizing attribution)</td>
                 </tr>
                 <tr>
@@ -85,17 +85,17 @@ export default function PrivacyPolicyPage() {
           <section className="space-y-4">
             <h2 className="font-serif text-2xl font-bold text-brand-text">4. Data Sharing and Third-Party Transfer</h2>
             <p>
-              Claim Source is an enquiry-qualification marketing platform. Once you complete and submit an eligibility form, we will evaluate the circumstances. If eligibility requirements are met, we will share your details with our verified legal assessment partners and panel law firms, who may contact you about your potential claim.
+              Claim Source is an enquiry-qualification marketing platform. Once you complete and submit an eligibility form, we will evaluate the circumstances. If eligibility requirements are met, we will share your details with our verified legal partners and panel law firms, who may contact you about your potential claim.
             </p>
             <p>
-              We do not sell, rent, or trade your personal data to general marketing databases. Your data is only shared with legal partners explicitly for the purpose of assessing your enquiry.
+              We do not sell, rent, or trade your personal data to general marketing databases. Your data is only shared with legal partners explicitly for the purpose of processing your enquiry.
             </p>
           </section>
 
           <section className="space-y-4">
             <h2 className="font-serif text-2xl font-bold text-brand-text">5. Data Retention & Security</h2>
             <p>
-              We retain personal data only as long as necessary to fulfill the purposes for which it was collected, typically up to 12 months for lead assessment records, unless a longer retention period is required to meet regulatory or legal disputes.
+              We retain personal data only as long as necessary to fulfill the purposes for which it was collected, typically up to 12 months for lead qualification records, unless a longer retention period is required to meet regulatory or legal disputes.
             </p>
             <p>
               We have put in place appropriate security measures to prevent your personal data from being accidentally lost, used, or accessed in an unauthorized way. This includes SSL encryption, secure server firewalls, and restricted database permissions.

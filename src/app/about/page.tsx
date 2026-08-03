@@ -281,7 +281,7 @@ export default function AboutPage() {
             Take a two-minute confidential check to evaluate your circumstances.
           </p>
           <Link
-            href="/#campaign-selector"
+            href="/#claim-selector"
             className="group relative overflow-hidden inline-flex items-center justify-center bg-white text-brand-accent px-10 py-4 text-sm uppercase tracking-widest font-bold transition-all duration-300 hover:bg-brand-accent-light focus:outline-none rounded-sm shadow-2xl"
           >
             <span className="absolute inset-0 bg-white/20 -translate-x-full skew-x-[-20deg] group-hover:translate-x-full transition-transform duration-500 ease-out" />

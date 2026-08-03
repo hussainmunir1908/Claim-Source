@@ -43,7 +43,7 @@ export default function CookiePolicyPage() {
               </li>
               <li>
                 <span className="font-semibold text-brand-text block">Marketing & Attribution Cookies (Optional)</span>
-                These cookies are used to track the efficiency of our campaign ads on external networks like Google or Facebook. They store attribution tags (like GCLID or FBCLID) so we can match a completed enquiry with the ad that referred it.
+                These cookies are used to track the efficiency of our marketing ads on external networks like Google or Facebook. They store attribution tags (like GCLID or FBCLID) so we can match a completed enquiry with the ad that referred it.
               </li>
             </ul>
           </section>
@@ -68,7 +68,7 @@ export default function CookiePolicyPage() {
             <h3 className="font-serif text-lg font-bold text-brand-text">Questions?</h3>
             <p>
               For further questions regarding our cookie practices, please contact:<br />
-              <span className="font-semibold text-brand-text">Email:</span> <span className="text-red-700 bg-red-50 px-1 font-bold">[PRIVACY EMAIL]</span>
+              <span className="font-semibold text-brand-text">Email:</span> info@claimsource.uk
             </p>
           </section>
         </div>

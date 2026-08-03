@@ -50,12 +50,12 @@ export default function FAQsPage() {
     {
       category: "Eligibility",
       question: "How does Claim Source qualify my enquiry?",
-      answer: "We analyze your answers regarding your tenancy type, dates of notifications, type of injury, reporting records, and location. If they match UK campaign thresholds (such as renting status or time limits), we validate your enquiry and match you with a legal specialist.",
+      answer: "We analyze your answers regarding your tenancy type, dates of notifications, type of injury, reporting records, and location. If they match UK criteria thresholds (such as renting status or time limits), we validate your enquiry and match you with a legal specialist.",
     },
     {
       category: "Eligibility",
       question: "What happens if my enquiry is not qualified?",
-      answer: "If your circumstances do not meet the legal criteria for our campaigns (for example, if you rent from a private landlord but did not notify them in writing, or if your accident occurred more than three years ago), we will explain this clearly. We will not charge you any fees.",
+      answer: "If your circumstances do not meet the legal criteria for our services (for example, if you rent from a private landlord but did not notify them in writing, or if your accident occurred more than three years ago), we will explain this clearly. We will not charge you any fees.",
     },
     {
       category: "Privacy & Safety",

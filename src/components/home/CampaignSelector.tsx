@@ -102,7 +102,7 @@ export default function CampaignSelector() {
   return (
     <section
       ref={sectionRef}
-      id="campaign-selector"
+      id="claim-selector"
       className="relative py-24 md:py-36 border-b border-brand-border overflow-hidden"
     >
       {/* Full background image */}
@@ -127,13 +127,13 @@ export default function CampaignSelector() {
         {/* Header */}
         <div className="max-w-3xl mb-16 md:mb-24">
           <span className="text-xs md:text-sm uppercase tracking-[0.25em] text-brand-accent font-semibold block mb-4 fade-up-selector">
-            Campaign Selector
+            Claim Types
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-brand-text leading-[1.12] fade-up-selector">
-            Choose a campaign path to check eligibility.
+            Choose a claim type to check eligibility.
           </h2>
           <p className="text-base md:text-lg text-brand-muted mt-6 max-w-2xl leading-relaxed fade-up-selector">
-            Select one of our primary UK campaign routes below to begin your confidential qualification check. The assessment takes approximately two minutes.
+            Select one of our primary UK claim types below to begin your confidential qualification check. The check takes approximately two minutes.
           </p>
         </div>
 

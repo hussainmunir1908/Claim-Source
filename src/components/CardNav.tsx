@@ -199,7 +199,7 @@ const CardNav = ({
           </div>
 
           <a
-            href="/#campaign-selector"
+            href="/#claim-selector"
             className="card-nav-cta-button"
             style={{ backgroundColor: buttonBgColor, color: buttonTextColor, textDecoration: 'none' }}
           >
