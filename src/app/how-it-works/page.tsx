@@ -5,7 +5,7 @@ import RoundCarousel from "@/components/RoundCarousel";
 
 export const metadata: Metadata = {
   title: "How It Works",
-  description: "Learn how the Claim Source enquiry process works. See our step-by-step assessment of your housing or injury circumstances.",
+  description: "Learn how the Claim Source enquiry process works. See our step-by-step evaluation of your housing, injury, or tenant deposit circumstances.",
 };
 
 export default function HowItWorksPage() {

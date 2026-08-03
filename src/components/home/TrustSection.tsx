@@ -71,7 +71,7 @@ export default function TrustSection() {
       icon: <Eye className="w-6 h-6 text-brand-accent icon-animate" />,
       title: "Transparent from the first step.",
       description:
-        "No hidden terms, false promises, or high-pressure tactics. We provide objective assessments to help you make informed decisions.",
+        "No hidden terms, false promises, or high-pressure tactics. We provide objective evaluations to help you make informed decisions.",
     },
   ];
 
@@ -106,12 +106,12 @@ export default function TrustSection() {
             </h2>
             <div className="w-16 h-[2px] bg-brand-accent mt-8 mb-6" />
             <p className="text-base md:text-lg text-brand-muted leading-relaxed">
-              We believe seeking repair enforcement or accident compensation should be a clear, stress-free experience. Claim Source provides a trusted bridge to qualified assessors, with zero pressure.
+              We believe seeking repair enforcement or accident compensation should be a clear, stress-free experience. Claim Source provides a trusted bridge to qualified specialist law firms, with zero pressure.
             </p>
 
             {/* Trust badges */}
             <div className="mt-10 flex flex-col gap-3">
-              {["UK GDPR Compliant", "Free Initial Enquiry", "No Obligation Assessment"].map((badge) => (
+              {["UK GDPR Compliant", "Free Initial Enquiry", "No Obligation Check"].map((badge) => (
                 <div key={badge} className="flex items-center gap-3 text-xs uppercase tracking-widest text-brand-muted">
                   <div className="w-4 h-4 rounded-full bg-brand-accent/15 border border-brand-accent/30 flex items-center justify-center flex-shrink-0">
                     <div className="w-1.5 h-1.5 rounded-full bg-brand-accent" />

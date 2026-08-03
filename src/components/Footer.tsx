@@ -53,12 +53,12 @@ export default function Footer() {
               </div>
               <div>
                 <div className="font-serif text-xl font-bold text-white tracking-wide">Claim Source</div>
-                <div className="text-[10px] uppercase tracking-[0.2em] text-white/40 font-semibold">UK Claims Assessment</div>
+                <div className="text-[10px] uppercase tracking-[0.2em] text-white/40 font-semibold">UK Claims Matching</div>
               </div>
             </Link>
 
             <p className="text-sm md:text-base text-[#A8A7A3] leading-relaxed mb-8 max-w-sm">
-              Claim Source provides a secure and confidential assessment of circumstances to determine eligibility for housing disrepair and personal injury claims.
+              Claim Source provides a secure and confidential matching service to determine eligibility for housing disrepair, injury claims, and tenant deposit claims.
             </p>
 
             {/* Contact details */}
@@ -136,7 +136,7 @@ export default function Footer() {
                 href="/#campaign-selector"
                 className="group inline-flex items-center gap-2 bg-brand-accent text-white text-xs uppercase tracking-widest font-bold px-5 py-3 rounded-sm hover:bg-brand-accent-hover transition-colors duration-300 focus:outline-none w-full justify-center"
               >
-                Start Free Assessment
+                Check Eligibility
                 <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
             </div>
@@ -153,7 +153,7 @@ export default function Footer() {
               We are a marketing platform. We do not provide legal advice. We advertise for our partner law firms.
             </p>
             <p className="text-xs text-[#6a6966] leading-relaxed">
-              Claim Source is an enquiry-qualification service operated by CLAIM SOURCE. Submitting an enquiry via this website constitutes a request for eligibility assessment. Eligible enquiries may be passed to third-party regulated solicitors or claims professionals who will assess your circumstances and decide whether they can represent you. A fee may be payable if you choose to enter into an agreement with a service provider, typically structured on a &quot;No Win, No Fee&quot; basis subject to their terms.
+              Claim Source is an enquiry-qualification service operated by CLAIM SOURCE. Submitting an enquiry via this website constitutes a request for eligibility matching. Eligible enquiries may be passed to third-party regulated solicitors or claims professionals who will assess your circumstances and decide whether they can represent you. A fee may be payable if you choose to enter into an agreement with a service provider, typically structured on a &quot;No Win, No Fee&quot; basis subject to their terms.
             </p>
           </div>
         </div>

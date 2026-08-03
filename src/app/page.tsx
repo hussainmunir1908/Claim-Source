@@ -84,13 +84,13 @@ export default function Home() {
 
   const tickerItems = [
     "Housing Disrepair Claims",
-    "Personal Injury Assessments",
+    "Personal Injury Claims",
     "Free Eligibility Check",
     "No Win No Fee",
     "UK Regulated",
     "Confidential Process",
     "Regulated Law Firms",
-    "Fast Assessment",
+    "Fast Eligibility Check",
   ];
 
   return (
@@ -209,10 +209,10 @@ export default function Home() {
               The Path Forward
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-brand-text leading-tight">
-              How the assessment works.
+              How it works.
             </h2>
             <p className="text-sm md:text-base text-brand-muted mt-6 leading-relaxed">
-              Three clear stages from your initial enquiry to professional solicitor assessment.
+              Three clear stages from your initial enquiry to professional solicitor consultation.
             </p>
           </div>
 
@@ -233,7 +233,7 @@ export default function Home() {
                   Complete Qualification
                 </h3>
                 <p className="text-sm md:text-base text-brand-muted leading-relaxed">
-                  Select your campaign (Housing Disrepair or Personal Injury) and answer our secure online questionnaire to supply the details of your situation.
+                  Select your claim type (Housing Disrepair, Injury Claims, or Tenant Deposit) and answer our secure online questionnaire to supply the details of your situation.
                 </p>
               </div>
               <div className="absolute bottom-0 left-0 h-[2px] bg-brand-accent w-0 group-hover:w-full transition-all duration-500 ease-out" />
@@ -250,7 +250,7 @@ export default function Home() {
                   Evaluation & Validation
                 </h3>
                 <p className="text-sm md:text-base text-brand-muted leading-relaxed">
-                  Our system checks for compliance indicators and stores details securely. If eligibility guidelines are met, the details are queued for solicitor assessment.
+                  Our system checks for compliance indicators and stores details securely. If eligibility guidelines are met, the details are queued for solicitor consultation.
                 </p>
               </div>
               <div className="absolute bottom-0 left-0 h-[2px] bg-brand-accent w-0 group-hover:w-full transition-all duration-500 ease-out" />

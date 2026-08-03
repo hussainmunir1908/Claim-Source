@@ -29,14 +29,14 @@ export const metadata: Metadata = {
     template: "%s | Claim Source",
     default: "Claim Source",
   },
-  description: "Assessment for Housing Disrepair and Personal Injury claims. Check your eligibility today via our premium, confidential online evaluation.",
+  description: "Check eligibility for Housing Disrepair, Personal Injury, and Tenant Deposit claims. Check your eligibility today via our premium, confidential online evaluation.",
   metadataBase: new URL("https://claimsource.co.uk"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Claim Source | Premium UK Claims Eligibility Assessment",
-    description: "Confidential and professional assessment of your housing disrepair and personal injury circumstances. Free initial enquiry.",
+    title: "Claim Source | Premium UK Claims Eligibility Matching",
+    description: "Confidential and professional evaluation of your housing disrepair, injury claims, and tenant deposit circumstances. Free initial enquiry.",
     url: "/",
     siteName: "Claim Source",
     locale: "en_GB",

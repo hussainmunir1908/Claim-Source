@@ -97,7 +97,7 @@ export default function CTABanner() {
           >
             <span className="absolute inset-0 bg-white/20 -translate-x-full skew-x-[-20deg] group-hover:translate-x-full transition-transform duration-500 ease-out" />
             <span className="relative z-10 flex items-center gap-2">
-              Begin Free Assessment
+              Check Eligibility
               <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </span>
           </Link>
@@ -124,7 +124,7 @@ export default function CTABanner() {
 
         {/* Trust micro-copy */}
         <div className="cta-element flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs uppercase tracking-widest text-white/45 font-semibold">
-          <span>✦ Free Assessment</span>
+          <span>✦ Free Claim Check</span>
           <span>✦ No Obligation</span>
           <span>✦ Confidential</span>
           <span>✦ UK GDPR Compliant</span>

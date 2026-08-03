@@ -46,11 +46,11 @@ export default function FAQPreview() {
   const previewFaqs = [
     {
       question: "Is there a cost to make an enquiry?",
-      answer: "No, submitting an eligibility check with Claim Source is completely free. We assess your circumstances without any upfront fees or obligations.",
+      answer: "No, submitting an eligibility check with Claim Source is completely free. We review your circumstances without any upfront fees or obligations.",
     },
     {
-      question: "How long does the assessment take?",
-      answer: "Completing our online form takes about two minutes. Once submitted, we will evaluate your details, and a qualified assessor may contact you shortly to review your options.",
+      question: "How long does the eligibility check take?",
+      answer: "Completing our online form takes about two minutes. Once submitted, we will evaluate your details, and a qualified claims specialist may contact you shortly to review your options.",
     },
     {
       question: "What is a 'No Win, No Fee' agreement?",

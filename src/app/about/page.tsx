@@ -134,7 +134,7 @@ export default function AboutPage() {
             Bringing clarity and confidence to UK claims.
           </h1>
           <p className="about-hero-sub text-white/70 text-base md:text-xl max-w-2xl leading-relaxed mt-8 font-light">
-            Claim Source is a dedicated enquiry assessment and qualification service — helping people understand whether their circumstances align with legal requirements.
+            Claim Source is a dedicated enquiry qualification and matching service — helping people understand whether their circumstances align with legal requirements.
           </p>
         </div>
       </section>
@@ -278,7 +278,7 @@ export default function AboutPage() {
             Find out if you have a path to a claim.
           </h2>
           <p className="text-white/70 text-sm md:text-base leading-relaxed mb-10 max-w-xl mx-auto">
-            Take a two-minute confidential assessment to evaluate your circumstances.
+            Take a two-minute confidential check to evaluate your circumstances.
           </p>
           <Link
             href="/#campaign-selector"

@@ -89,7 +89,7 @@ export default function FAQsPage() {
             Frequently Asked Questions
           </h1>
           <p className="text-brand-muted text-xs md:text-sm max-w-xl mx-auto leading-relaxed">
-            Find answers to common questions regarding UK housing disrepair duties, personal injury laws, and our assessment workflow.
+            Find answers to common questions regarding UK housing disrepair duties, personal injury laws, and our eligibility checks.
           </p>
         </div>
 
