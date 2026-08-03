@@ -184,7 +184,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-6 md:px-12 py-16">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-0 divide-y sm:divide-y-0 sm:divide-x divide-brand-border">
             {[
-              { value: c1, suffix: "", label: "Assessments Completed", subtext: "" },
+              { value: c1, suffix: "", label: "Claims Checked", subtext: "" },
               { value: c2, suffix: " Years", label: "Industry Experience", subtext: "" },
               { 
                 value: c3, 

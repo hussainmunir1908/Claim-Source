@@ -234,7 +234,7 @@ export default function HomeHero() {
               </div>
               <div className="text-left">
                 <div className="font-serif text-lg font-bold leading-none">286</div>
-                <div className="text-[10px] uppercase tracking-widest text-white/60 mt-0.5">Assessments</div>
+                <div className="text-[10px] uppercase tracking-widest text-white/60 mt-0.5">Claims Checked</div>
               </div>
             </div>
             <div className="hidden sm:block w-[1px] h-8 bg-white/20" />

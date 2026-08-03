@@ -138,7 +138,7 @@ export default function Home() {
               {/* Check list */}
               <div className="pt-4 space-y-3 pitch-fade-up">
                 {[
-                  "Free, confidential initial assessment",
+                  "Free, confidential initial evaluation",
                   "Connected to verified UK law specialists",
                   "No Win, No Fee arrangements available",
                 ].map((item) => (
@@ -151,7 +151,7 @@ export default function Home() {
             </div>
             <div className="lg:col-span-5 flex flex-col justify-center items-start border-t lg:border-t-0 lg:border-l border-brand-border pt-10 lg:pt-0 lg:pl-12 pitch-fade-up">
               <p className="text-sm md:text-base text-brand-muted leading-relaxed mb-8">
-                Claim Source acts as a secure, independent assessment portal. We gather your details, evaluate parameters against common legal criteria, and point you in the right direction.
+                Claim Source acts as a secure, independent claims matching platform. We gather your details, check eligibility against common criteria, and connect you with regulated law specialists.
               </p>
               <Link
                 href="/how-it-works"
@@ -167,15 +167,11 @@ export default function Home() {
           <div className="mt-16 md:mt-24 w-full h-[40vh] md:h-[60vh] relative overflow-hidden rounded-sm pitch-fade-up group">
             <Image
               src="/legal-office.png"
-              alt="Professional legal claims assessment environment"
+              alt="Professional legal office environment"
               fill
               className="object-cover group-hover:scale-[1.03] transition-transform duration-[2s] ease-out"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-brand-bg/80 via-transparent to-transparent" />
-            {/* Image caption */}
-            <div className="absolute bottom-6 left-8 text-xs uppercase tracking-widest text-white/60 font-semibold">
-              Professional Assessment Environment
-            </div>
           </div>
         </div>
       </section>
