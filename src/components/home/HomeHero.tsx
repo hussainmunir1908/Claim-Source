@@ -204,7 +204,7 @@ export default function HomeHero() {
         {/* Subtitle / CTA actions */}
         <div ref={contentRef} className="mt-10 flex flex-col items-center max-w-3xl w-full">
           <p className="text-white/85 text-base sm:text-lg md:text-xl font-light leading-relaxed mb-10 text-balance max-w-2xl">
-            Claim Source helps individuals check eligibility for Housing Disrepair and Personal Injury campaigns, connecting qualifying enquiries with verified UK law specialists.
+            Claim Source stands as your direct line to justice — a fast, reliable service built to help tenants and injured individuals get the compensation they’re owed without stress.
           </p>
 
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto mb-10 sm:mb-12">
