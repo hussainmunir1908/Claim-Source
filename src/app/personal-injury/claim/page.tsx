@@ -346,7 +346,7 @@ export default function InjuryClaimPage() {
       {/* Progress Bar Header */}
       <div className="mb-12 space-y-5">
         <div className="flex justify-between items-center text-xs uppercase tracking-widest text-brand-muted font-bold">
-          <span>Personal Injury Assessment</span>
+          <span>Personal Injury Claim Check</span>
           <span>Step {step} of {totalSteps}</span>
         </div>
         <div className="w-full h-[3px] bg-brand-border rounded-full overflow-hidden">
@@ -902,7 +902,7 @@ export default function InjuryClaimPage() {
                     className="w-5 h-5 accent-brand-accent cursor-pointer mt-1"
                   />
                   <label htmlFor="consentProcess" className="text-xs md:text-sm text-brand-muted leading-relaxed cursor-pointer select-none">
-                    <span className="font-bold text-brand-text">Data Processing:</span> I consent to Claim Source assessing my information for suitability. I agree to the privacy policy guidelines. *
+                    <span className="font-bold text-brand-text">Data Processing:</span> I consent to Claim Source processing my information to match with legal partners. I agree to the privacy policy guidelines. *
                   </label>
                 </div>
                 {errors.consentProcess && <p className="text-red-600 text-xs font-semibold">{errors.consentProcess}</p>}
@@ -916,7 +916,7 @@ export default function InjuryClaimPage() {
                     className="w-5 h-5 accent-brand-accent cursor-pointer mt-1"
                   />
                   <label htmlFor="consentContact" className="text-xs md:text-sm text-brand-muted leading-relaxed cursor-pointer select-none">
-                    <span className="font-bold text-brand-text">Contact Permission:</span> I consent to being contacted about this assessment by phone, SMS, or email by Claim Source and their legal assessment partners. *
+                    <span className="font-bold text-brand-text">Contact Permission:</span> I consent to being contacted about my claim check by phone, SMS, or email by Claim Source and their legal partners. *
                   </label>
                 </div>
                 {errors.consentContact && <p className="text-red-600 text-xs font-semibold">{errors.consentContact}</p>}

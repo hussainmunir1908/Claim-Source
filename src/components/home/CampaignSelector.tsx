@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Home, Stethoscope } from "lucide-react";
+import { ArrowRight, Home, Stethoscope, Coins } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -63,7 +63,7 @@ export default function CampaignSelector() {
       label: "Housing Disrepair",
       labelBg: "bg-brand-accent",
       href: "/housing-disrepair/claim",
-      title: "Housing Disrepair Campaign",
+      title: "Housing Disrepair Claims",
       description:
         "Problems with damp, mould, leaks, structural defects, broken heating, or unsafe living conditions? Check if you may qualify for repair enforcement and compensation.",
       tags: ["Damp & Mould", "Structural Defects", "Heating Issues", "Water Leaks"],
@@ -73,16 +73,29 @@ export default function CampaignSelector() {
     },
     {
       id: "personal-injury",
-      label: "Personal Injury",
+      label: "Injury Claims",
       labelBg: "bg-[#2E3E33] border border-white/10",
       href: "/personal-injury/claim",
-      title: "Personal Injury Campaign",
+      title: "Injury Claims",
       description:
         "Injured in a road traffic collision, workplace accident, or public slip and trip due to someone else's negligence? Find out if there may be a route to compensation.",
       tags: ["Road Traffic", "Workplace Accident", "Slip & Trip", "Public Liability"],
       icon: <Stethoscope className="w-4 h-4 text-white" />,
       gradient: "from-[#1a2a1f]/80 via-[#0d1611]/90 to-[#0d1611]",
       image: "/hero-injury.png",
+    },
+    {
+      id: "tenant-deposit",
+      label: "Tenant Deposit",
+      labelBg: "bg-brand-accent/65 border border-white/10",
+      href: "/tenant-deposit/claim",
+      title: "Tenant Deposit Claims",
+      description:
+        "Did your landlord fail to protect your deposit in a government scheme within 30 days? You could claim up to 3x your deposit value back.",
+      tags: ["Unprotected Deposit", "Late Scheme Deposit", "No Prescribed Info"],
+      icon: <Coins className="w-4 h-4 text-white" />,
+      gradient: "from-[#1c2c25]/80 via-[#0d1611]/90 to-[#0d1611]",
+      image: "/img4.jpg",
     },
   ];
 
@@ -125,7 +138,7 @@ export default function CampaignSelector() {
         </div>
 
         {/* Interactive Split Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
           {panels.map((panel) => (
             <div
               key={panel.id}

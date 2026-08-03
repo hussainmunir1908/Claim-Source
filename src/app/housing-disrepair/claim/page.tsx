@@ -66,7 +66,7 @@ interface FormData {
 
 const initialFormState: FormData = {
   nation: "",
-  tenancyType: "",
+  tenancyType: "Rented",
   landlordType: "",
   postcode: "",
   addressLine1: "",
@@ -112,7 +112,6 @@ export default function HousingClaimPage() {
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [refNumber, setRefNumber] = useState("");
-  const [showTenancyWarning, setShowTenancyWarning] = useState(false);
   const formTopRef = useRef<HTMLDivElement>(null);
 
   // Restore state from sessionStorage if present
@@ -161,8 +160,7 @@ export default function HousingClaimPage() {
 
     if (step === 1) {
       if (!formData.nation) newErrors.nation = "Please select your location.";
-      if (!formData.tenancyType) newErrors.tenancyType = "Please select your renting status.";
-      if (formData.tenancyType === "Rented" && !formData.landlordType) {
+      if (!formData.landlordType) {
         newErrors.landlordType = "Please select your landlord type.";
       }
     }
@@ -227,13 +225,6 @@ export default function HousingClaimPage() {
 
   const handleNext = () => {
     if (!validateStep()) return;
-
-    if (step === 1 && formData.tenancyType !== "Rented" && !showTenancyWarning) {
-      setShowTenancyWarning(true);
-      return;
-    }
-
-    setShowTenancyWarning(false);
 
     if (step === 4 && !isReported) {
       setStep(6);
@@ -349,7 +340,7 @@ export default function HousingClaimPage() {
           </div>
           <div className="flex gap-4 items-start bg-brand-card p-4 border border-brand-border/60 rounded-sm">
             <span className="p-2 bg-brand-accent/10 rounded-full text-brand-accent font-bold text-xs flex-shrink-0">3</span>
-            <p>An expert assessor will call or email you for a free, confidential consultation.</p>
+            <p>A claims specialist will call or email you for a free, confidential consultation.</p>
           </div>
         </div>
         <Link
@@ -367,7 +358,7 @@ export default function HousingClaimPage() {
       {/* Progress Bar Header */}
       <div className="mb-12 space-y-5">
         <div className="flex justify-between items-center text-xs uppercase tracking-widest text-brand-muted font-bold">
-          <span>Housing Disrepair Assessment</span>
+          <span>Housing Disrepair Claim Check</span>
           <span>Step {step} of {totalSteps}</span>
         </div>
         <div className="w-full h-[3px] bg-brand-border rounded-full overflow-hidden">
@@ -378,34 +369,14 @@ export default function HousingClaimPage() {
         </div>
       </div>
 
-      {/* Warning Alert if Tenancy Warning Triggered */}
-      {showTenancyWarning && (
-        <div className="bg-amber-50 border border-amber-200 p-6 mb-8 text-amber-900 rounded-sm flex gap-4 items-start animate-[fadeIn_0.5s_ease-out]">
-          <AlertCircle className="w-6 h-6 flex-shrink-0 mt-0.5 text-amber-700" />
-          <div className="space-y-3">
-            <h4 className="font-bold text-sm uppercase tracking-wider">Property Eligibility Notice</h4>
-            <p className="text-sm leading-relaxed">
-              Housing disrepair claims are legally designated for renters (local councils, housing associations, and private tenants). If you own the property outright or have a mortgage, landlord dispute systems typically do not apply.
-            </p>
-            <button
-              onClick={() => {
-                setShowTenancyWarning(false);
-                setStep(step + 1);
-              }}
-              className="bg-amber-950 text-white px-6 py-2.5 text-xs uppercase tracking-widest font-bold rounded-sm hover:bg-amber-900 transition-colors"
-            >
-              Continue Anyway
-            </button>
-          </div>
-        </div>
-      )}
+
 
       {/* Form Content Steps with dynamic key to trigger smooth entry animations */}
       <div key={step} className="flex-grow flex flex-col justify-center py-6 animate-[fadeIn_0.5s_cubic-bezier(0.16,1,0.3,1)_forwards]">
         {step === 1 && (
           <div className="space-y-8">
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-brand-text leading-tight">
-              Where do you rent, and what is your tenancy status?
+              Where do you rent, and who is your landlord?
             </h2>
             <div className="space-y-6">
               <div>
@@ -433,29 +404,25 @@ export default function HousingClaimPage() {
                 {errors.nation && <p className="text-red-600 text-xs mt-2 font-semibold">{errors.nation}</p>}
               </div>
 
-              <div>
-                <label className="block text-xs md:text-sm uppercase tracking-widest font-bold text-brand-muted mb-3">Tenancy Status</label>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="animate-[fadeIn_0.4s_ease-out]">
+                <label className="block text-xs md:text-sm uppercase tracking-widest font-bold text-brand-muted mb-3">Who is your landlord?</label>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   {[
-                    { label: "I rent my property", value: "Rented" },
-                    { label: "I own the property (Outright / Mortgaged)", value: "Owned" },
+                    { label: "Council / Local Authority", value: "Council" },
+                    { label: "Housing Association", value: "Housing Association" },
+                    { label: "Private Landlord", value: "Private Landlord" },
                   ].map((opt) => (
                     <div key={opt.value}>
                       <input
-                        type="radio"
-                        id={`tenancy-${opt.value}`}
-                        name="tenancyType"
-                        checked={formData.tenancyType === opt.value}
-                        onChange={() => {
-                          updateFormData({
-                            tenancyType: opt.value,
-                            landlordType: opt.value === "Owned" ? "None" : "",
-                          });
-                        }}
-                        className="sr-only form-radio-card"
+                         type="radio"
+                         id={`landlord-${opt.value}`}
+                         name="landlordType"
+                         checked={formData.landlordType === opt.value}
+                         onChange={() => updateFormData({ landlordType: opt.value })}
+                         className="sr-only form-radio-card"
                       />
                       <label
-                        htmlFor={`tenancy-${opt.value}`}
+                        htmlFor={`landlord-${opt.value}`}
                         className="block text-center border-2 border-brand-border py-5 px-3 text-sm md:text-base font-bold hover:border-brand-accent transition-all cursor-pointer bg-brand-card rounded-sm"
                       >
                         {opt.label}
@@ -463,39 +430,8 @@ export default function HousingClaimPage() {
                     </div>
                   ))}
                 </div>
-                {errors.tenancyType && <p className="text-red-600 text-xs mt-2 font-semibold">{errors.tenancyType}</p>}
+                {errors.landlordType && <p className="text-red-600 text-xs mt-2 font-semibold">{errors.landlordType}</p>}
               </div>
-
-              {formData.tenancyType === "Rented" && (
-                <div className="animate-[fadeIn_0.4s_ease-out]">
-                  <label className="block text-xs md:text-sm uppercase tracking-widest font-bold text-brand-muted mb-3">Who is your landlord?</label>
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                    {[
-                      { label: "Council / Local Authority", value: "Council" },
-                      { label: "Housing Association", value: "Housing Association" },
-                      { label: "Private Landlord", value: "Private Landlord" },
-                    ].map((opt) => (
-                      <div key={opt.value}>
-                        <input
-                           type="radio"
-                           id={`landlord-${opt.value}`}
-                           name="landlordType"
-                           checked={formData.landlordType === opt.value}
-                           onChange={() => updateFormData({ landlordType: opt.value })}
-                           className="sr-only form-radio-card"
-                        />
-                        <label
-                          htmlFor={`landlord-${opt.value}`}
-                          className="block text-center border-2 border-brand-border py-5 px-3 text-sm md:text-base font-bold hover:border-brand-accent transition-all cursor-pointer bg-brand-card rounded-sm"
-                        >
-                          {opt.label}
-                        </label>
-                      </div>
-                    ))}
-                  </div>
-                  {errors.landlordType && <p className="text-red-600 text-xs mt-2 font-semibold">{errors.landlordType}</p>}
-                </div>
-              )}
             </div>
           </div>
         )}
@@ -1020,7 +956,7 @@ export default function HousingClaimPage() {
                     className="w-5 h-5 accent-brand-accent cursor-pointer mt-1"
                   />
                   <label htmlFor="consentProcess" className="text-xs md:text-sm text-brand-muted leading-relaxed cursor-pointer select-none">
-                    <span className="font-bold text-brand-text">Data Processing:</span> I consent to Claim Source assessing my information for suitability. I agree to the privacy policy guidelines. *
+                    <span className="font-bold text-brand-text">Data Processing:</span> I consent to Claim Source processing my information to match with legal partners. I agree to the privacy policy guidelines. *
                   </label>
                 </div>
                 {errors.consentProcess && <p className="text-red-600 text-xs font-semibold">{errors.consentProcess}</p>}
@@ -1034,7 +970,7 @@ export default function HousingClaimPage() {
                     className="w-5 h-5 accent-brand-accent cursor-pointer mt-1"
                   />
                   <label htmlFor="consentContact" className="text-xs md:text-sm text-brand-muted leading-relaxed cursor-pointer select-none">
-                    <span className="font-bold text-brand-text">Contact Permission:</span> I consent to being contacted about this assessment by phone, SMS, or email by Claim Source and their legal assessment partners. *
+                    <span className="font-bold text-brand-text">Contact Permission:</span> I consent to being contacted about my claim check by phone, SMS, or email by Claim Source and their legal partners. *
                   </label>
                 </div>
                 {errors.consentContact && <p className="text-red-600 text-xs font-semibold">{errors.consentContact}</p>}

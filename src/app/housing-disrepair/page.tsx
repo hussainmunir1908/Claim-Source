@@ -77,7 +77,7 @@ export default function HousingDisrepairPage() {
             UK Campaign
           </span>
           <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-6 max-w-3xl leading-tight">
-            Housing Disrepair Assessment
+            Housing Disrepair Claims
           </h1>
           <p className="text-white/80 text-base md:text-lg max-w-2xl leading-relaxed mb-8 font-light">
             Tenants in England and Wales are legally entitled to live in a safe, healthy home. If your landlord fails to maintain your home, you may have a route to claim repairs and compensation.
@@ -230,7 +230,7 @@ export default function HousingDisrepairPage() {
                 href="/housing-disrepair/claim"
                 className="w-full flex items-center justify-between bg-brand-accent text-brand-bg px-6 py-4 text-xs uppercase tracking-widest font-semibold hover:bg-brand-accent-hover transition-colors focus:outline-none"
               >
-                Start Free Assessment
+                Check Eligibility
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -269,7 +269,7 @@ export default function HousingDisrepairPage() {
       <section className="py-24 text-center">
         <div className="max-w-3xl mx-auto px-6">
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-brand-text mb-6">
-            Assess your property circumstances today.
+            Check your eligibility today.
           </h2>
           <p className="text-xs md:text-sm text-brand-muted leading-relaxed mb-8 max-w-xl mx-auto">
             Find out within minutes whether you qualify for legal assistance to force repairs and recover potential damages.

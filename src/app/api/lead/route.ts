@@ -36,6 +36,8 @@ export async function POST(req: Request) {
     const webhookUrl =
       data.campaign === "Personal Injury"
         ? process.env.GOOGLE_SHEET_INJURY_WEBHOOK_URL || process.env.GOOGLE_SHEET_WEBHOOK_URL
+        : data.campaign === "Tenant Deposit"
+        ? process.env.GOOGLE_SHEET_DEPOSIT_WEBHOOK_URL || process.env.GOOGLE_SHEET_WEBHOOK_URL
         : process.env.GOOGLE_SHEET_DISREPAIR_WEBHOOK_URL || process.env.GOOGLE_SHEET_WEBHOOK_URL;
 
     let sheetsSyncSuccess = false;

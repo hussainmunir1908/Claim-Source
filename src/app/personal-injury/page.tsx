@@ -96,7 +96,7 @@ export default function PersonalInjuryPage() {
             UK Campaign
           </span>
           <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-6 max-w-3xl leading-tight">
-            Personal Injury Assessment
+            Personal Injury Claims
           </h1>
           <p className="text-white/80 text-base md:text-lg max-w-2xl leading-relaxed mb-8 font-light">
             If you have been injured due to another party&apos;s negligence, you may have a legal route to claim compensation for injuries, lost income, and rehabilitation costs.
@@ -183,7 +183,7 @@ export default function PersonalInjuryPage() {
                 Supporting your eligibility.
               </h2>
               <p className="text-sm text-brand-muted leading-relaxed mb-8">
-                To establish eligibility, a claims professional will need to review specific items of evidence related to the incident. Collecting these early can significantly accelerate the assessment.
+                To establish eligibility, a claims professional will need to review specific items of evidence related to the incident. Collecting these early can significantly accelerate the process.
               </p>
               <div className="space-y-6">
                 {evidenceList.map((item, idx) => (
@@ -264,10 +264,10 @@ export default function PersonalInjuryPage() {
       <section className="py-24 text-center">
         <div className="max-w-3xl mx-auto px-6">
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-brand-text mb-6">
-            Assess your injury circumstances today.
+            Check your eligibility today.
           </h2>
           <p className="text-xs md:text-sm text-brand-muted leading-relaxed mb-8 max-w-xl mx-auto">
-            Find out within minutes whether you meet the requirements for a legal review of your case.
+            Find out within minutes whether you qualify for legal assistance to recover potential damages.
           </p>
           <Link
             href="/personal-injury/claim"
