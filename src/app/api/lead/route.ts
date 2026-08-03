@@ -41,7 +41,10 @@ export async function POST(req: Request) {
         : process.env.GOOGLE_SHEET_DISREPAIR_WEBHOOK_URL || process.env.GOOGLE_SHEET_WEBHOOK_URL;
 
     let sheetsSyncSuccess = false;
-    let finalLeadId = data.leadId || "";
+    const prefix = data.campaign === "Personal Injury" ? "PI" : data.campaign === "Tenant Deposit" ? "TD" : "HD";
+    const generatedId = `${prefix}-${Date.now().toString().slice(-6)}-${Math.floor(1000 + Math.random() * 9000)}`;
+    let finalLeadId = data.leadId || generatedId;
+    data.leadId = finalLeadId;
 
     if (webhookUrl) {
       try {
@@ -62,21 +65,15 @@ export async function POST(req: Request) {
         if (syncRes.ok) {
           const responseText = await syncRes.text();
           sheetsSyncSuccess = true;
-          let sheetError = "";
           try {
             const responseData = JSON.parse(responseText);
             if (responseData.leadId) {
                finalLeadId = responseData.leadId;
             } else if (responseData.error) {
-               sheetError = responseData.error;
+               console.error("Google Sheets Webhook error payload:", responseData.error);
             }
           } catch(e) {
-            sheetError = "Failed to parse JSON. Raw text: " + responseText;
-          }
-          if (sheetError) {
-             console.error("Sheet Error:", sheetError);
-             // We return it in message so frontend can display it as a fallback ID for debugging
-             finalLeadId = "ERR: " + sheetError.substring(0, 50);
+             console.error("Failed to parse Google Sheets Webhook JSON response. Raw text:", responseText);
           }
         } else {
           console.error(`Google Sheets Webhook responded with status: ${syncRes.status}`);
