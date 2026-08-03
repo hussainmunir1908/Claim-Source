@@ -197,17 +197,18 @@ html.lenis, html.lenis body {
 .shimmer-text {
   background: linear-gradient(
     90deg,
-    var(--color-brand-accent) 0%,
-    #5a7a63 40%,
-    #8fb89a 50%,
-    #5a7a63 60%,
-    var(--color-brand-accent) 100%
+    #D4AF37 0%,
+    #F3E7C4 20%,
+    #FFFFFF 40%,
+    #F3E7C4 60%,
+    #D4AF37 80%,
+    #FFFFFF 100%
   );
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: shimmer 4s linear infinite;
+  animation: shimmer 6s linear infinite;
 }
 
 @keyframes gradientShift {
