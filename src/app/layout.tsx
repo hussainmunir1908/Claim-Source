@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Claim Source | Premium UK Claims Eligibility Matching",
+    title: "CLAIM YOUR SOURCE",
     description: "Confidential and professional evaluation of your housing disrepair, injury claims, and tenant deposit circumstances. Free initial enquiry.",
     url: "/",
     siteName: "Claim Source",
