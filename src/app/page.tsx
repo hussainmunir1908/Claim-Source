@@ -89,7 +89,7 @@ export default function Home() {
     "No Win No Fee",
     "UK Regulated",
     "Confidential Process",
-    "Verified Solicitors",
+    "Regulated Law Firms",
     "Fast Assessment",
   ];
 

@@ -35,7 +35,7 @@ export default function AboutPage() {
 
   const c1 = useCounter(286, 2.2, counterStarted);
   const c2 = useCounter(14, 1.5, counterStarted);
-  const c3 = useCounter(50, 2.0, counterStarted);
+  const c3 = useCounter(10, 2.0, counterStarted);
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -184,9 +184,14 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-6 md:px-12 py-16">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-0 divide-y sm:divide-y-0 sm:divide-x divide-brand-border">
             {[
-              { value: c1, suffix: "", label: "Assessments Completed" },
-              { value: c2, suffix: " Years", label: "Industry Experience" },
-              { value: c3, suffix: "+ Partners", label: "Verified Solicitors" },
+              { value: c1, suffix: "", label: "Assessments Completed", subtext: "" },
+              { value: c2, suffix: " Years", label: "Industry Experience", subtext: "" },
+              { 
+                value: c3, 
+                suffix: "+", 
+                label: "Regulated Law Firms", 
+                subtext: "Connected to SRA and FCA regulated specialist law firms" 
+              },
             ].map((stat, idx) => (
               <div key={idx} className="about-stat text-center py-10 px-6 group hover:bg-brand-bg/50 transition-colors duration-300">
                 <div className="font-serif text-5xl md:text-6xl font-bold text-brand-accent mb-2 counter-number">
@@ -195,6 +200,11 @@ export default function AboutPage() {
                 <div className="text-xs uppercase tracking-[0.2em] text-brand-muted font-semibold">
                   {stat.label}
                 </div>
+                {stat.subtext && (
+                  <div className="text-[11px] text-brand-muted/70 mt-2 max-w-[220px] mx-auto leading-relaxed normal-case font-normal">
+                    {stat.subtext}
+                  </div>
+                )}
               </div>
             ))}
           </div>

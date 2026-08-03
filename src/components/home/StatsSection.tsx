@@ -31,7 +31,13 @@ const stats = [
   { label: "Assessments Completed", value: 286, suffix: "", prefix: "" },
   { label: "Satisfaction Rate", value: 100, suffix: "%", prefix: "" },
   { label: "Years Experience", value: 14, suffix: "", prefix: "" },
-  { label: "Partner Solicitors", value: 50, suffix: "+", prefix: "" },
+  { 
+    label: "Regulated Law Firms", 
+    value: 10, 
+    suffix: "+", 
+    prefix: "",
+    subtext: "Connected to SRA and FCA regulated specialist law firms"
+  },
 ];
 
 export default function StatsSection() {
@@ -119,6 +125,11 @@ export default function StatsSection() {
               <div className="text-xs md:text-sm uppercase tracking-[0.2em] text-white/50 font-semibold">
                 {stat.label}
               </div>
+              {stat.subtext && (
+                <div className="text-[11px] text-white/40 mt-2 max-w-[220px] mx-auto leading-relaxed normal-case font-normal">
+                  {stat.subtext}
+                </div>
+              )}
               <div className="w-8 h-[1px] bg-brand-accent mx-auto mt-4 group-hover:w-16 transition-all duration-500" />
             </div>
           ))}
