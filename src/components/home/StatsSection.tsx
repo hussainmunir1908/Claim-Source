@@ -103,7 +103,7 @@ export default function StatsSection() {
             By The Numbers
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-white font-bold mt-3 leading-tight">
-            Trusted across the UK
+            Over 500 happy clients
           </h2>
         </div>
 
