@@ -28,9 +28,8 @@ export default function BlogPreview() {
   useEffect(() => {
     if (loading || posts.length === 0) return;
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const isMobile = window.matchMedia("(max-width: 768px)").matches;
     const ctx = gsap.context(() => {
-      if (!prefersReducedMotion && !isMobile) {
+      if (!prefersReducedMotion) {
         gsap.from(".blog-card", {
           scrollTrigger: {
             trigger: sectionRef.current,

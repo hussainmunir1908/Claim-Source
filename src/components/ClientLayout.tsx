@@ -46,13 +46,8 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
 
     // 2. Initialize Smooth Scroll + GSAP
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const isMobileDevice = typeof window !== "undefined" && (
-      window.matchMedia("(max-width: 1024px)").matches ||
-      "ontouchstart" in window ||
-      navigator.maxTouchPoints > 0
-    );
 
-    if (!prefersReducedMotion && !isAdmin && !isMobileDevice) {
+    if (!prefersReducedMotion && !isAdmin) {
       const lenis = new Lenis({
         duration: 1.2,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),

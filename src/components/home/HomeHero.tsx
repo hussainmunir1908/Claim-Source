@@ -105,10 +105,6 @@ export default function HomeHero() {
     }, containerRef);
 
     // Mouse parallax effect
-    const isMobileDevice = window.matchMedia("(max-width: 1024px)").matches || 
-                           "ontouchstart" in window || 
-                           navigator.maxTouchPoints > 0;
-
     let mouseX = 0, mouseY = 0;
     const handleMouseMove = (e: MouseEvent) => {
       if (prefersReducedMotion) return;
@@ -127,15 +123,11 @@ export default function HomeHero() {
       }
     };
 
-    if (!isMobileDevice) {
-      window.addEventListener("mousemove", handleMouseMove);
-    }
+    window.addEventListener("mousemove", handleMouseMove);
 
     return () => {
       ctx.revert();
-      if (!isMobileDevice) {
-        window.removeEventListener("mousemove", handleMouseMove);
-      }
+      window.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
 

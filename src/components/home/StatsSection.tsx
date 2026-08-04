@@ -52,10 +52,8 @@ export default function StatsSection() {
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const isMobile = window.matchMedia("(max-width: 768px)").matches;
-
     const ctx = gsap.context(() => {
-      if (!prefersReducedMotion && !isMobile) {
+      if (!prefersReducedMotion) {
         gsap.from(".stat-block", {
           scrollTrigger: {
             trigger: sectionRef.current,
