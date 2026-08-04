@@ -50,8 +50,9 @@ export default function TestimonialsSection() {
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
     const ctx = gsap.context(() => {
-      if (!prefersReducedMotion) {
+      if (!prefersReducedMotion && !isMobile) {
         gsap.from(".testimonial-section-header", {
           scrollTrigger: {
             trigger: sectionRef.current,

@@ -45,8 +45,17 @@ export default function MouseEffects({
     const [crosshairs, setCrosshairs] = useState<Effect[]>([]);
     const [wavies, setWavies] = useState<Effect[]>([]);
     const [snipers, setSnipers] = useState<Effect[]>([]);
+    const [disabled, setDisabled] = useState(false);
 
     useEffect(() => {
+        if (typeof window !== "undefined") {
+            const hasTouch = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+            if (hasTouch) {
+                setDisabled(true);
+                return;
+            }
+        }
+
         const handleClick = (e: MouseEvent) => {
             const container = containerRef.current;
             if (!container) return;
@@ -98,6 +107,8 @@ export default function MouseEffects({
         transform: `rotate(${rotation}deg)`,
         transformOrigin: "center",
     });
+
+    if (disabled) return null;
 
     return (
         <div
@@ -624,6 +635,7 @@ export default function MouseEffects({
                         ))}
                     </div>
                 ))}
+            {/* ... */}
         </div>
     );
 }
