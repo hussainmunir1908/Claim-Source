@@ -193,7 +193,6 @@ const CardNav = ({
                 height={70}
                 className="logo"
                 priority
-                quality={100}
               />
             </a>
           </div>

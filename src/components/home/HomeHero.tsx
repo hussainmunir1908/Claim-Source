@@ -144,7 +144,6 @@ export default function HomeHero() {
             alt="UK Courtroom Hero Background"
             fill
             priority
-            unoptimized
             sizes="100vw"
             className="object-cover object-[center_20%] pointer-events-none"
             ref={imageRef}
