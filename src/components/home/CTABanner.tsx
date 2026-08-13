@@ -13,27 +13,6 @@ if (typeof window !== "undefined") {
 export default function CTABanner() {
   const sectionRef = useRef<HTMLElement>(null);
 
-  useEffect(() => {
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const ctx = gsap.context(() => {
-      if (!prefersReducedMotion) {
-        gsap.from(".cta-element", {
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 80%",
-            once: true,
-          },
-          opacity: 0,
-          y: 35,
-          duration: 1.1,
-          stagger: 0.12,
-          ease: "power3.out",
-        });
-      }
-    }, sectionRef);
-    return () => ctx.revert();
-  }, []);
-
   return (
     <section
       ref={sectionRef}
@@ -68,13 +47,6 @@ export default function CTABanner() {
           />
         ))}
       </div>
-
-      {/* Subtle noise texture */}
-      <div className="absolute inset-0 opacity-20 mix-blend-overlay"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E")`
-        }}
-      />
 
       <div className="max-w-5xl mx-auto px-6 md:px-12 relative z-10 text-center">
         <span className="cta-element text-xs uppercase tracking-[0.3em] font-semibold text-white/60 block mb-5">
