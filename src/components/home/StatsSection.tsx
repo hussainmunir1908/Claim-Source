@@ -98,9 +98,9 @@ export default function StatsSection() {
         <div className="absolute inset-0 bg-[#0e1512]/85" />
       </div>
 
-      {/* Orbs */}
-      <div className="absolute top-0 left-1/4 w-[400px] h-[400px] rounded-full bg-brand-accent/15 blur-[120px] pointer-events-none z-1" />
-      <div className="absolute bottom-0 right-1/4 w-[300px] h-[300px] rounded-full bg-brand-accent/10 blur-[100px] pointer-events-none z-1" />
+      {/* Orbs (Desktop only) */}
+      <div className="absolute top-0 left-1/4 w-[400px] h-[400px] rounded-full bg-brand-accent/15 blur-[120px] pointer-events-none z-1 hidden md:block" />
+      <div className="absolute bottom-0 right-1/4 w-[300px] h-[300px] rounded-full bg-brand-accent/10 blur-[100px] pointer-events-none z-1 hidden md:block" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         {/* Label */}

@@ -55,7 +55,7 @@ export default function BlogPreview() {
       ref={sectionRef}
       className="py-24 md:py-36 border-b border-brand-border relative overflow-hidden bg-brand-bg"
     >
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-brand-accent/4 blur-[130px] pointer-events-none" />
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-brand-accent/4 blur-[130px] pointer-events-none hidden md:block" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         {/* Header */}

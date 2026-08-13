@@ -148,8 +148,8 @@ export default function TestimonialsSection() {
         <div className="absolute inset-0 bg-gradient-to-b from-brand-bg/50 via-brand-card/70 to-brand-bg/50" />
       </div>
 
-      {/* Orb */}
-      <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-brand-accent/6 blur-[120px] pointer-events-none z-1" />
+      {/* Orb (Desktop only) */}
+      <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-brand-accent/6 blur-[120px] pointer-events-none z-1 hidden md:block" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         {/* Header */}

@@ -31,9 +31,9 @@ export default function Footer() {
       {/* Top gradient glow strip */}
       <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-brand-accent/60 to-transparent" />
 
-      {/* Ambient orbs */}
-      <div className="absolute top-0 right-1/4 w-[600px] h-[600px] rounded-full bg-brand-accent/8 blur-[150px] pointer-events-none" />
-      <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] rounded-full bg-brand-accent/5 blur-[120px] pointer-events-none" />
+      {/* Ambient orbs (Desktop only) */}
+      <div className="absolute top-0 right-1/4 w-[600px] h-[600px] rounded-full bg-brand-accent/8 blur-[150px] pointer-events-none hidden md:block" />
+      <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] rounded-full bg-brand-accent/5 blur-[120px] pointer-events-none hidden md:block" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         {/* Main footer grid */}

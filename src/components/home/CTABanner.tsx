@@ -46,9 +46,9 @@ export default function CTABanner() {
         backgroundSize: "300% 300%"
       }} />
 
-      {/* Orbs */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-white/5 blur-[150px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-white/3 blur-[100px] pointer-events-none" />
+      {/* Orbs (Desktop only) */}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-white/5 blur-[150px] pointer-events-none hidden md:block" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-white/3 blur-[100px] pointer-events-none hidden md:block" />
 
       {/* Floating particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">

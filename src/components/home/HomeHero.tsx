@@ -31,7 +31,7 @@ export default function HomeHero() {
       gsap.set(contentRef.current, { y: 40, opacity: 0 });
       // On mobile skip scale to keep image sharp
       if (!isMobile) {
-        gsap.set(imageRef.current, { scale: 1.18, filter: "brightness(0.95)" });
+        gsap.set(imageRef.current, { scale: 1.18 });
       }
       gsap.set(".stat-chip", { opacity: 0, y: 20, scale: 0.9 });
 
@@ -41,7 +41,6 @@ export default function HomeHero() {
       if (!isMobile) {
         tl.to(imageRef.current, {
           scale: 1,
-          filter: "brightness(1)",
           duration: 2.5,
           ease: "power2.out",
         }, "0");
