@@ -33,7 +33,6 @@ export default function HomeHero() {
       if (!isMobile) {
         gsap.set(imageRef.current, { scale: 1.18, filter: "brightness(0.95)" });
       }
-      gsap.set(".hero-badge", { opacity: 0, y: -20, scale: 0.9 });
       gsap.set(".stat-chip", { opacity: 0, y: 20, scale: 0.9 });
 
       // Cinematic entrance timeline
@@ -48,13 +47,6 @@ export default function HomeHero() {
         }, "0");
       }
       tl
-      .to(".hero-badge", {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        duration: 0.8,
-        ease: "back.out(1.7)",
-      }, "0.4")
       .to(".animate-word", {
         y: "0%",
         opacity: 1,
@@ -105,29 +97,28 @@ export default function HomeHero() {
     }, containerRef);
 
     // Mouse parallax effect
-    let mouseX = 0, mouseY = 0;
-    const handleMouseMove = (e: MouseEvent) => {
-      if (prefersReducedMotion) return;
-      const { clientX, clientY } = e;
-      const { innerWidth, innerHeight } = window;
-      mouseX = (clientX / innerWidth - 0.5) * 2;
-      mouseY = (clientY / innerHeight - 0.5) * 2;
+    let handleMouseMove: ((e: MouseEvent) => void) | null = null;
+    if (!prefersReducedMotion && !isMobile && parallaxLayerRef.current) {
+      const xTo = gsap.quickTo(parallaxLayerRef.current, "x", { duration: 1.5, ease: "power2.out" });
+      const yTo = gsap.quickTo(parallaxLayerRef.current, "y", { duration: 1.5, ease: "power2.out" });
 
-      if (parallaxLayerRef.current) {
-        gsap.to(parallaxLayerRef.current, {
-          x: mouseX * 12,
-          y: mouseY * 8,
-          duration: 1.5,
-          ease: "power2.out",
-        });
-      }
-    };
+      handleMouseMove = (e: MouseEvent) => {
+        const { clientX, clientY } = e;
+        const { innerWidth, innerHeight } = window;
+        const mouseX = (clientX / innerWidth - 0.5) * 2;
+        const mouseY = (clientY / innerHeight - 0.5) * 2;
+        xTo(mouseX * 12);
+        yTo(mouseY * 8);
+      };
 
-    window.addEventListener("mousemove", handleMouseMove);
+      window.addEventListener("mousemove", handleMouseMove);
+    }
 
     return () => {
       ctx.revert();
-      window.removeEventListener("mousemove", handleMouseMove);
+      if (handleMouseMove) {
+        window.removeEventListener("mousemove", handleMouseMove);
+      }
     };
   }, []);
 

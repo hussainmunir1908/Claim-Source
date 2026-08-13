@@ -58,7 +58,10 @@ export default function Antigravity({
     };
     const rgbColor = hex2rgb(color.startsWith('#') ? color : '#ffffff');
 
-    for (let i = 0; i < count; i++) {
+    const isMobile = window.innerWidth <= 768;
+    const activeCount = isMobile ? Math.min(count, 80) : Math.min(count, 150);
+
+    for (let i = 0; i < activeCount; i++) {
       particles.push({
         x: Math.random() * width,
         y: Math.random() * height,
@@ -98,8 +101,6 @@ export default function Antigravity({
         const boundedOpacity = Math.max(0.05, Math.min(0.8, currentOpacity));
 
         ctx.fillStyle = `rgba(${rgbColor}, ${boundedOpacity})`;
-        ctx.shadowColor = color;
-        ctx.shadowBlur = p.size * 3;
         
         ctx.beginPath();
         

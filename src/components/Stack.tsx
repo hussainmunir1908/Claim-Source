@@ -21,6 +21,7 @@ export default function Stack({
   autoplayDelay = 3000,
   pauseOnHover = false,
 }: StackProps) {
+  const [mounted, setMounted] = useState(false);
   const [stack, setStack] = useState<React.ReactNode[]>([...cards]);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
@@ -28,10 +29,7 @@ export default function Stack({
   const [isPaused, setIsPaused] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
-
-  const rotations = useRef<number[]>(
-    cards.map(() => (randomRotation ? (Math.random() - 0.5) * 12 : 0))
-  );
+  const rotations = useRef<number[]>(cards.map(() => 0));
 
   const sendToBack = (index: number) => {
     setStack((prev) => {
@@ -43,6 +41,13 @@ export default function Stack({
       return newStack;
     });
   };
+
+  useEffect(() => {
+    setMounted(true);
+    if (randomRotation) {
+      rotations.current = cards.map(() => (Math.random() - 0.5) * 12);
+    }
+  }, [cards, randomRotation]);
 
   useEffect(() => {
     if (!autoplay) return;
@@ -94,7 +99,7 @@ export default function Stack({
     >
       {stack.map((card, index) => {
         const isTop = index === stack.length - 1;
-        const rotation = rotations.current[index] ?? 0;
+        const rotation = mounted ? (rotations.current[index] ?? 0) : 0;
         const depthOffset = (stack.length - 1 - index) * 6;
 
         return (
