@@ -25,7 +25,7 @@ export default function CampaignSelector() {
             scrollTrigger: {
               trigger: sectionRef.current,
               start: "top 85%",
-              toggleActions: "play none none none",
+              toggleActions: "play none none reverse",
             },
             opacity: 1,
             y: 0,
@@ -42,7 +42,7 @@ export default function CampaignSelector() {
             scrollTrigger: {
               trigger: sectionRef.current,
               start: "top 75%",
-              toggleActions: "play none none none",
+              toggleActions: "play none none reverse",
             },
             opacity: 1,
             y: 0,

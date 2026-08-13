@@ -44,10 +44,11 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
         sessionStorage.setItem("claim_source_referrer", document.referrer);
     }
 
-    // 2. Initialize Smooth Scroll + GSAP
+    // 2. Initialize Smooth Scroll + GSAP (Desktop only)
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const isTouchDevice = typeof window !== "undefined" && (("ontouchstart" in window) || window.innerWidth <= 768);
 
-    if (!prefersReducedMotion && !isAdmin) {
+    if (!prefersReducedMotion && !isAdmin && !isTouchDevice) {
       const lenis = new Lenis({
         duration: 1.2,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -55,7 +56,6 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
         gestureOrientation: "vertical",
         smoothWheel: true,
         wheelMultiplier: 1,
-        touchMultiplier: 1.5,
         infinite: false,
       });
 
@@ -108,7 +108,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
       </main>
       <Footer />
       <CookieBanner />
-      <div className="fixed inset-0 z-[9999] pointer-events-none">
+      <div className="fixed inset-0 z-[9999] pointer-events-none hidden md:block">
         <MouseEffects interactionMode="sniper" effectSize={120} />
       </div>
     </div>
