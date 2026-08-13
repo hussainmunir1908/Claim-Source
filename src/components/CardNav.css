@@ -157,6 +157,11 @@
 }
 
 @media (max-width: 768px) {
+  .card-nav {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
   .card-nav-top {
     height: 64px;
     padding: 0 16px;

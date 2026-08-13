@@ -119,8 +119,8 @@ export default function CampaignSelector() {
         <div className="absolute inset-0 bg-gradient-to-b from-brand-bg/90 via-brand-bg/80 to-brand-bg/90" />
       </div>
 
-      {/* Subtle background orb */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-brand-accent/4 blur-[150px] pointer-events-none z-1" />
+      {/* Subtle background orb (Desktop only) */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-brand-accent/4 blur-[150px] pointer-events-none z-1 hidden md:block" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         {/* Header */}
@@ -156,19 +156,11 @@ export default function CampaignSelector() {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0d1611] via-transparent to-transparent opacity-80" />
               </div>
 
-              {/* Subtle noise texture overlay */}
-              <div className="absolute inset-0 opacity-5 z-1"
-                style={{
-                  backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`
-                }}
-              />
-
               {/* Hover glow border */}
               <div className="absolute inset-0 rounded-sm border-2 border-transparent group-hover:border-brand-accent/50 transition-all duration-500 z-20 pointer-events-none" />
 
               {/* Top decorative circle */}
-              <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-brand-accent/10 blur-[80px] group-hover:bg-brand-accent/20 transition-all duration-700 z-1" />
-              <div className="absolute -bottom-20 -left-20 w-48 h-48 rounded-full bg-white/3 blur-[60px] z-1" />
+              <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-brand-accent/10 blur-[80px] group-hover:bg-brand-accent/20 transition-all duration-700 z-1 hidden md:block" />
 
               {/* Panel Header */}
               <div className="relative z-10 p-8 md:p-12 flex items-start justify-between">

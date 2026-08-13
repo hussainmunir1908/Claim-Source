@@ -145,10 +145,10 @@ export default function HomeHero() {
       <div className="absolute inset-0 bg-black/35 z-1" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/15 z-1" />
 
-      {/* Floating Particles (Antigravity) */}
-      <div className="absolute inset-0 z-2 overflow-hidden pointer-events-none">
+      {/* Floating Particles (Antigravity - Desktop Only for buttery-smooth mobile speed) */}
+      <div className="absolute inset-0 z-2 overflow-hidden pointer-events-none hidden md:block">
         <Antigravity
-          count={300}
+          count={150}
           magnetRadius={6}
           ringRadius={7}
           waveSpeed={0.4}
@@ -166,9 +166,9 @@ export default function HomeHero() {
         />
       </div>
 
-      {/* Decorative orbs */}
-      <div className="absolute top-1/4 left-[15%] w-[300px] h-[300px] rounded-full bg-brand-accent/10 blur-[100px] pointer-events-none z-2 orb-1" />
-      <div className="absolute bottom-1/4 right-[10%] w-[400px] h-[400px] rounded-full bg-brand-accent/8 blur-[120px] pointer-events-none z-2 orb-2" />
+      {/* Decorative orbs (Desktop Only) */}
+      <div className="absolute top-1/4 left-[15%] w-[300px] h-[300px] rounded-full bg-brand-accent/10 blur-[100px] pointer-events-none z-2 orb-1 hidden md:block" />
+      <div className="absolute bottom-1/4 right-[10%] w-[400px] h-[400px] rounded-full bg-brand-accent/8 blur-[120px] pointer-events-none z-2 orb-2 hidden md:block" />
 
 
 

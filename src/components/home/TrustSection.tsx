@@ -88,9 +88,9 @@ export default function TrustSection() {
         TRUST
       </div>
 
-      {/* Orb accents */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-brand-accent/5 blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-brand-accent/4 blur-[100px] pointer-events-none" />
+      {/* Orb accents (Desktop only) */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-brand-accent/5 blur-[120px] pointer-events-none hidden md:block" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-brand-accent/4 blur-[100px] pointer-events-none hidden md:block" />
 
 
 

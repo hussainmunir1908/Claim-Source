@@ -556,12 +556,6 @@ img {
     justify-content: flex-end;
   }
 
-  /* Prevent GSAP from over-scaling images on mobile which causes blur */
-  [data-nimg="fill"] {
-    transform: none !important;
-    -webkit-transform: none !important;
-  }
-
   /* Section hero image containers */
   section > .absolute.inset-0 {
     overflow: hidden;

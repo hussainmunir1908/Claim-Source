@@ -66,25 +66,17 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
       gsap.ticker.add(updateGsapTicker);
       gsap.ticker.lagSmoothing(0);
 
-      // Global Scroll Line Animations
-      const linesH = gsap.utils.toArray<HTMLElement>(".scroll-line-h");
-      linesH.forEach((line) => {
-        ScrollTrigger.create({
-          trigger: line,
-          start: "top 95%",
-          onEnter: () => line.classList.add("scroll-line-active"),
-          onLeaveBack: () => line.classList.remove("scroll-line-active"),
-        });
+      // Global Scroll Line Animations (Batched for peak performance)
+      ScrollTrigger.batch(".scroll-line-h", {
+        start: "top 95%",
+        once: true,
+        onEnter: (elements) => elements.forEach((el) => el.classList.add("scroll-line-active")),
       });
 
-      const linesV = gsap.utils.toArray<HTMLElement>(".scroll-line-v");
-      linesV.forEach((line) => {
-        ScrollTrigger.create({
-          trigger: line,
-          start: "top 95%",
-          onEnter: () => line.classList.add("scroll-line-active-v"),
-          onLeaveBack: () => line.classList.remove("scroll-line-active-v"),
-        });
+      ScrollTrigger.batch(".scroll-line-v", {
+        start: "top 95%",
+        once: true,
+        onEnter: (elements) => elements.forEach((el) => el.classList.add("scroll-line-active-v")),
       });
 
       return () => {
