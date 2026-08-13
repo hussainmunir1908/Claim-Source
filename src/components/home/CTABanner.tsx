@@ -21,7 +21,7 @@ export default function CTABanner() {
           scrollTrigger: {
             trigger: sectionRef.current,
             start: "top 80%",
-            toggleActions: "play none none reverse",
+            once: true,
           },
           opacity: 0,
           y: 35,

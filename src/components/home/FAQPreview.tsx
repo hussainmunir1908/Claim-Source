@@ -30,7 +30,7 @@ export default function FAQPreview() {
           scrollTrigger: {
             trigger: sectionRef.current,
             start: "top 85%",
-            toggleActions: "play none none reverse",
+            once: true,
           },
           opacity: 0,
           y: 30,

@@ -58,7 +58,7 @@ export default function StatsSection() {
           scrollTrigger: {
             trigger: sectionRef.current,
             start: "top 80%",
-            toggleActions: "play none none reverse",
+            once: true,
             onEnter: () => setStarted(true),
           },
           opacity: 0,

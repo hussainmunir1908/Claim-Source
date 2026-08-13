@@ -56,7 +56,7 @@ export default function TestimonialsSection() {
           scrollTrigger: {
             trigger: sectionRef.current,
             start: "top 85%",
-            toggleActions: "play none none reverse",
+            once: true,
           },
           opacity: 0,
           y: 30,
@@ -68,7 +68,7 @@ export default function TestimonialsSection() {
           scrollTrigger: {
             trigger: sectionRef.current,
             start: "top 78%",
-            toggleActions: "play none none reverse",
+            once: true,
           },
           opacity: 0,
           y: 50,

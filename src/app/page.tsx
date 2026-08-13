@@ -35,7 +35,7 @@ export default function Home() {
             scrollTrigger: {
               trigger: pitchRef.current,
               start: "top 85%",
-              toggleActions: "play none none reverse",
+              once: true,
             },
             opacity: 1,
             y: 0,
@@ -52,7 +52,7 @@ export default function Home() {
             scrollTrigger: {
               trigger: processRef.current,
               start: "top 78%",
-              toggleActions: "play none none reverse",
+              once: true,
             },
             opacity: 1,
             y: 0,

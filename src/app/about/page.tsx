@@ -65,7 +65,7 @@ export default function AboutPage() {
 
         // Mission section
         gsap.from(".mission-item", {
-          scrollTrigger: { trigger: ".mission-section", start: "top 80%" },
+          scrollTrigger: { trigger: ".mission-section", start: "top 80%", once: true },
           opacity: 0,
           y: 40,
           duration: 1.1,
@@ -75,7 +75,7 @@ export default function AboutPage() {
 
         // Pillars
         gsap.from(".pillar-card", {
-          scrollTrigger: { trigger: ".pillars-section", start: "top 80%" },
+          scrollTrigger: { trigger: ".pillars-section", start: "top 80%", once: true },
           opacity: 0,
           y: 40,
           scale: 0.96,
@@ -89,6 +89,7 @@ export default function AboutPage() {
           scrollTrigger: {
             trigger: statsSectionRef.current,
             start: "top 80%",
+            once: true,
             onEnter: () => setCounterStarted(true),
           },
           opacity: 0,
