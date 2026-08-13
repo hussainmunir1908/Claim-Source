@@ -73,7 +73,7 @@ export default function PersonalInjuryPage() {
         className="fixed inset-0 z-0 bg-cover bg-center"
         style={{ backgroundImage: 'url("/bg-injury.jpg")' }}
       />
-      <div className="fixed inset-0 bg-[#FAF9F6]/70 backdrop-blur-[4px] z-0" />
+      <div className="fixed inset-0 bg-[#FAF9F6]/90 z-0" />
       
       <div className="relative z-10">
       {/* 1. Page Hero */}

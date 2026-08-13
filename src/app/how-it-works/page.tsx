@@ -38,7 +38,7 @@ export default function HowItWorksPage() {
         style={{ backgroundImage: 'url("/bg-how-it-works.jpg")' }}
       />
       {/* Background overlay so text remains legible */}
-      <div className="fixed inset-0 bg-[#FAF9F6]/70 backdrop-blur-[4px] z-0" />
+      <div className="fixed inset-0 bg-[#FAF9F6]/90 z-0" />
       
       <div className="relative z-10">
       {/* 1. Page Header */}

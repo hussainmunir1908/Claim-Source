@@ -1,18 +1,35 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import CardNav from "./CardNav";
 
 export default function Navbar() {
-  const [progress, setProgress] = useState(0);
+  const progressBarRef = useRef<HTMLDivElement>(null);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
+    let ticking = false;
+
     const onScroll = () => {
-      setScrolled(window.scrollY > 20);
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      setProgress(docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollY = window.scrollY;
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+          if (progressBarRef.current) {
+            const pct = docHeight > 0 ? (scrollY / docHeight) * 100 : 0;
+            progressBarRef.current.style.width = `${pct}%`;
+          }
+
+          const isScrolled = scrollY > 20;
+          setScrolled((prev) => (prev !== isScrolled ? isScrolled : prev));
+
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
+
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -53,8 +70,9 @@ export default function Navbar() {
       {/* Scroll Progress Bar */}
       <div className="fixed top-0 left-0 right-0 z-[9999] h-[2px] bg-transparent pointer-events-none">
         <div
-          className="h-full bg-gradient-to-r from-brand-accent via-emerald-400 to-brand-accent transition-all duration-100 ease-out"
-          style={{ width: `${progress}%` }}
+          ref={progressBarRef}
+          className="h-full bg-gradient-to-r from-brand-accent via-emerald-400 to-brand-accent transition-all duration-75 ease-out"
+          style={{ width: "0%" }}
         />
       </div>
 

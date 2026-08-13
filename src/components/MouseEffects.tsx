@@ -47,6 +47,9 @@ export default function MouseEffects({
     const [snipers, setSnipers] = useState<Effect[]>([]);
 
     useEffect(() => {
+        const isTouchDevice = typeof window !== "undefined" && (("ontouchstart" in window) || window.innerWidth <= 768);
+        if (isTouchDevice) return;
+
         const handleClick = (e: MouseEvent) => {
             const container = containerRef.current;
             if (!container) return;
